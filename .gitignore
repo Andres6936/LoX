@@ -1,36 +1,7 @@
-# Default Binary Target
-LoX
+### JetBrains
+.idea/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+### Project
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# IDE Files
-*.cbp
-*.depend
-*.layout
+### Git
+.gitignore
