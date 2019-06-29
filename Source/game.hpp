@@ -6,21 +6,23 @@
 #include "level.hpp"
 #include "character.hpp"
 
-class Game : public State {
-    std::vector<Level> _dungeon;        // array of dungeons
-    uint _level;                        // current dungeon level
+class Game : public State
+{
+    std::vector <Level> _dungeon;        // array of dungeons
+    UInt _level;                        // current dungeon level
     Character _player;                  // player character
-    std::vector<item_ptr> _inventory;   // player inventory (TODO: Move to character class)
+    std::vector <item_ptr> _inventory;   // player inventory (TODO: Move to character class)
 
 public:
-    Game();
-    ~Game();
+    Game( );
+
+    ~Game( ) override;
 
     /* method called to update the game, overrides from base State class */
-    void Update();
+    void Update( ) override;
 
     /* method called to draw the screen, overrides from base State class */
-    void Draw();
+    void Draw( ) override;
 };
 
 #endif

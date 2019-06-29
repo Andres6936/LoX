@@ -1,8 +1,8 @@
 #include "character.hpp"
 
-Character::Character(std::string name, uint age, bool sex,
-        uchar race, uchar _class, uchar alignment)
-    : Creature(CREATURE_CHARACTER)
+Character::Character( std::string name, UInt age, bool sex,
+                      UChar race, UChar _class, UChar alignment )
+        : Creature( CREATURE_CHARACTER )
 {
     _name = name;
     _age = age;

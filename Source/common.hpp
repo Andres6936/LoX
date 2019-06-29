@@ -1,10 +1,11 @@
 #ifndef _LoX_COMMON
 #define _LoX_COMMON
 
+#pragma once
+
 /* version string */
 #define _LoX_VERSION "0.1.0.4"
 
-/* global external headers */
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -15,22 +16,20 @@
 #include <vector>
 #include <list>
 
-/* global internal headers */
-#include "dieroll.hpp"
+typedef unsigned char UChar;
 
-/* easier declaration of unsigned integers */
-typedef unsigned char uchar;
-typedef unsigned int uint;
+typedef unsigned int UInt;
 
 /* this structure is used to describe 2D positions and movements in the game */
-struct Vector2D {
-    uint x;
-    uint y;
+struct Vector2D
+{
+    UInt x;
+    UInt y;
 
     /* overload for '==' operator to work correctly */
-    bool operator==(const Vector2D& vect) {
-        if(x == vect.x && y == vect.y) return true;
-        return false;
+    bool operator==( const Vector2D &vect )
+    {
+        return x == vect.x && y == vect.y;
     }
 };
 

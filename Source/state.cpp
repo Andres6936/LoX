@@ -1,4 +1,5 @@
 #include "state.hpp"
 
-uchar State::_state;
+UChar State::_state;
+
 Renderer State::_ren;
