@@ -1,7 +1,7 @@
 #include "common.hpp"
-#include "state.hpp"
-#include "menu_main.hpp"
-#include "game.hpp"
+#include "Include/ISreen.hpp"
+#include "Include/MenuScreen.hpp"
+#include "Include/PlayScreen.hpp"
 
 int main( int argc, char* argv[] )
 {
@@ -9,18 +9,18 @@ int main( int argc, char* argv[] )
     srand( time( NULL ));
 
     /* initialise state machine */
-    State *states[STATE_EXIT];
+    IScreen *states[STATE_EXIT];
 
-    MenuMain menu;
-    Game lox;
+    MenuScreen menu;
+    PlayScreen lox;
 
     states[ 0 ] = &menu;
     states[ 1 ] = &lox;
 
     /* game loop */
-    while ( states[ 0 ]->_State( ) != STATE_EXIT )
+    while ( states[ 0 ]->GetState( ) != STATE_EXIT )
     {
-        states[ states[ 0 ]->_State( ) ]->Draw( );
-        states[ states[ 0 ]->_State( ) ]->Update( );
+        states[ states[ 0 ]->GetState( ) ]->Draw( );
+        states[ states[ 0 ]->GetState( ) ]->Update( );
     }
 }

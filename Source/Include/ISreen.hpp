@@ -14,28 +14,25 @@ enum EStates
     STATE_EXIT
 };
 
-class State
+class IScreen
 {
 
 protected:
 
     static UChar _state;    // current state of the machine
-    static Renderer _ren;   // renderer used for I/O
+    static Renderer renderer;   // renderer used for I/O
 
 public:
 
-    State( ) = default;
+    IScreen( ) = default;
 
-    virtual ~State( ) = default;
+    virtual ~IScreen( ) = default;
 
-    /* virtual method that is called to update states */
     virtual void Update( ) = 0;
 
-    /* virtual method that is called to draw states */
     virtual void Draw( ) = 0;
 
-    /* get method for _state */
-    UChar _State( ) const
+    UChar GetState( ) const
     { return _state; }
 };
 

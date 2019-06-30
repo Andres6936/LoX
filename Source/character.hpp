@@ -59,7 +59,7 @@ public:
      * Character constructor takes arguments to set the above attributes.
      * Only name is required, default values are provided for the others
      */
-    Character( std::string name, UInt age = 30, bool sex = true,
+    explicit Character( std::string name, UInt age = 30, bool sex = true,
                UChar race = RACE_HUMAN, UChar _class = CLASS_FIGHTER,
                UChar alignment = TRUE_NEUTRAL );
 
