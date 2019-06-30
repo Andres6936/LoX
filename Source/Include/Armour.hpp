@@ -1,7 +1,7 @@
 #ifndef _LoX_ARMOUR
 #define _LoX_ARMOUR
 
-#include "item.hpp"
+#include "Item.hpp"
 
 /* template used to describe armour items */
 struct ArmourTemplate

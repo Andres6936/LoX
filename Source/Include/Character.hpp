@@ -1,8 +1,8 @@
 #ifndef _LoX_CHARACTER
 #define _LoX_CHARACTER
 
-#include "common.hpp"
-#include "creature.hpp"
+#include "Common.hpp"
+#include "Creature.hpp"
 
 /* enumeration of all available races in the game */
 enum Races

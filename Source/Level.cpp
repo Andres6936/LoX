@@ -1,6 +1,6 @@
-#include "level.hpp"
-#include "character.hpp"
-#include "dieroll.hpp"
+#include "Include/Level.hpp"
+#include "Include/Character.hpp"
+#include "Include/DieRoll.hpp"
 
 int Level::randpick( )
 {

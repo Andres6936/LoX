@@ -1,4 +1,4 @@
-#include "character.hpp"
+#include "Include/Character.hpp"
 
 Character::Character( std::string name, UInt age, bool sex,
                       UChar race, UChar _class, UChar alignment )

@@ -1,9 +1,9 @@
 #ifndef _LoX_LEVEL
 #define _LoX_LEVEL
 
-#include "common.hpp"
+#include "Include/Common.hpp"
 
-#include "item.hpp"
+#include "Include/Item.hpp"
 
 #include <ctime>
 #include <vector>

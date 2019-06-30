@@ -1,4 +1,4 @@
-#include "common.hpp"
+#include "Include/Common.hpp"
 #include "Include/ISreen.hpp"
 #include "Include/MenuScreen.hpp"
 #include "Include/PlayScreen.hpp"
@@ -6,7 +6,7 @@
 int main( int argc, char* argv[] )
 {
     /* initialise random seed */
-    srand( time( NULL ));
+    srand( time( nullptr ));
 
     /* initialise state machine */
     IScreen *states[STATE_EXIT];

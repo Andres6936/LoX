@@ -1,9 +1,9 @@
 #ifndef _LoX_RENDERER
 #define _LoX_RENDERER
 
-#include "common.hpp"
-#include "level.hpp"
-#include "character.hpp"
+#include "Common.hpp"
+#include "Level.hpp"
+#include "Character.hpp"
 
 #include <curses.h>
 

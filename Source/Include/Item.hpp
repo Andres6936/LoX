@@ -1,7 +1,7 @@
 #ifndef _LoX_ITEM
 #define _LoX_ITEM
 
-#include "common.hpp"
+#include "Include/Common.hpp"
 
 class Item;
 

@@ -1,4 +1,4 @@
-#include "renderer.hpp"
+#include "Include/Renderer.hpp"
 
 // TODO: make this constructor more robust
 Renderer::Renderer( )

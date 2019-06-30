@@ -1,5 +1,5 @@
-#include "creature.hpp"
-#include "level.hpp"
+#include "Include/Creature.hpp"
+#include "Include/Level.hpp"
 
 Creature::Creature( UChar type )
 {

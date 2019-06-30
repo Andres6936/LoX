@@ -1,6 +1,6 @@
-#include "item.hpp"
+#include "Include/Item.hpp"
 
-#include "itemlist.hpp"
+#include "Include/ItemList.hpp"
 
 item_ptr Item::Generate( )
 {

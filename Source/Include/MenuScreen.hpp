@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "common.hpp"
+#include "Common.hpp"
 #include "ISreen.hpp"
 
 /* enumeration of items on the main menu */

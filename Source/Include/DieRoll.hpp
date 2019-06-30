@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "common.hpp"
+#include "Include/Common.hpp"
 
 /*
  * The Die structure is used to simulate dnd style dice rolls.

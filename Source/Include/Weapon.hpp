@@ -1,8 +1,8 @@
 #ifndef _LoX_WEAPON
 #define _LoX_WEAPON
 
-#include "item.hpp"
-#include "dieroll.hpp"
+#include "Include/Item.hpp"
+#include "Include/DieRoll.hpp"
 
 /* template used to describe weapon items */
 struct WeaponTemplate

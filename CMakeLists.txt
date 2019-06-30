@@ -6,15 +6,15 @@ SET(CMAKE_CXX_STANDARD 14)
 INCLUDE_DIRECTORIES(Source)
 
 ADD_EXECUTABLE(LoX
-        Source/character.cpp
-        Source/creature.cpp
-        Source/dieroll.cpp
+        Source/Character.cpp
+        Source/Creature.cpp
+        Source/DieRoll.cpp
         Source/PlayScreen.cpp
-        Source/item.cpp
-        Source/level.cpp
-        Source/main.cpp
+        Source/Item.cpp
+        Source/Level.cpp
+        Source/Main.cpp
         Source/MenuScreen.cpp
-        Source/renderer.cpp
+        Source/Renderer.cpp
         Source/ISreen.cpp
         )
 

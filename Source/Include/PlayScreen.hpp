@@ -2,9 +2,9 @@
 #define _LoX_GAME
 
 #include "ISreen.hpp"
-#include "item.hpp"
-#include "level.hpp"
-#include "character.hpp"
+#include "Item.hpp"
+#include "Level.hpp"
+#include "Character.hpp"
 
 class PlayScreen : public IScreen
 {
