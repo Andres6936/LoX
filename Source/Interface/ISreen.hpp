@@ -1,9 +1,9 @@
 #ifndef _LoX_STATE
 #define _LoX_STATE
 
-#include "Common.hpp"
+#include "Include/Common.hpp"
 
-#include "Renderer.hpp"
+#include "Include/Renderer.hpp"
 
 /* enumeration of all possible game states */
 enum EStates

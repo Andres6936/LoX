@@ -1,7 +1,7 @@
 #ifndef _LoX_GAME
 #define _LoX_GAME
 
-#include "ISreen.hpp"
+#include "Interface/ISreen.hpp"
 #include "Item.hpp"
 #include "Level.hpp"
 #include "Character.hpp"

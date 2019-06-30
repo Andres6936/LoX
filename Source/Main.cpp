@@ -1,5 +1,5 @@
 #include "Include/Common.hpp"
-#include "Include/ISreen.hpp"
+#include "Interface/ISreen.hpp"
 #include "Include/MenuScreen.hpp"
 #include "Include/PlayScreen.hpp"
 

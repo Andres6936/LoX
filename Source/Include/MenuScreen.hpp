@@ -4,7 +4,7 @@
 #pragma once
 
 #include "Common.hpp"
-#include "ISreen.hpp"
+#include "Interface/ISreen.hpp"
 
 /* enumeration of items on the main menu */
 enum main_menu_items

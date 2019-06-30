@@ -15,7 +15,7 @@ ADD_EXECUTABLE(LoX
         Source/Main.cpp
         Source/MenuScreen.cpp
         Source/Renderer.cpp
-        Source/ISreen.cpp
+        Source/Interface/ISreen.cpp
         )
 
 TARGET_LINK_LIBRARIES(LoX ncurses)
