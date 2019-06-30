@@ -1,10 +1,12 @@
 #ifndef _LoX_GAME
 #define _LoX_GAME
 
+#pragma once
+
 #include "Interface/ISreen.hpp"
-#include "Item.hpp"
-#include "Level.hpp"
-#include "Character.hpp"
+#include "Include/Item.hpp"
+#include "Include/Level.hpp"
+#include "Include/Character.hpp"
 
 class PlayScreen : public IScreen
 {
@@ -14,15 +16,16 @@ class PlayScreen : public IScreen
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)
 
 public:
+
     PlayScreen( );
 
     ~PlayScreen( ) override;
 
-    /* method called to update the game, overrides from base IScreen class */
     void Update( ) override;
 
-    /* method called to draw the screen, overrides from base IScreen class */
     void Draw( ) override;
+
+    void NextScreen() override;
 };
 
 #endif

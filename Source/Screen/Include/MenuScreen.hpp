@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "Common.hpp"
+#include "Include/Common.hpp"
 #include "Interface/ISreen.hpp"
 
 /* enumeration of items on the main menu */
@@ -21,11 +21,11 @@ public:
 
     MenuScreen( );
 
-    /* method used to update the main menu, overrides from base IScreen class */
     void Update( ) override;
 
-    /* method used to draw the menu, overrides from base IScreen class */
     void Draw( ) override;
+
+    void NextScreen() override;
 };
 
 #endif

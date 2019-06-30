@@ -1,7 +1,7 @@
 #include "Include/Common.hpp"
-#include "Interface/ISreen.hpp"
-#include "Include/MenuScreen.hpp"
-#include "Include/PlayScreen.hpp"
+#include "Screen/Interface/ISreen.hpp"
+#include "Screen/Include/MenuScreen.hpp"
+#include "Screen/Include/PlayScreen.hpp"
 
 int main( int argc, char* argv[] )
 {

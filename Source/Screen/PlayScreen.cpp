@@ -1,4 +1,4 @@
-#include "Include/PlayScreen.hpp"
+#include "Screen/Include/PlayScreen.hpp"
 
 PlayScreen::PlayScreen( ) :
         character( "Player" )
@@ -132,4 +132,9 @@ void PlayScreen::Update( )
             { level.Generate( ); }
             break;
     }
+}
+
+void PlayScreen::NextScreen( )
+{
+
 }

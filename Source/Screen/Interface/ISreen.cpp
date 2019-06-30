@@ -1,4 +1,4 @@
-#include "Interface/ISreen.hpp"
+#include "ISreen.hpp"
 
 UChar IScreen::_state;
 

@@ -1,4 +1,4 @@
-#include "Include/MenuScreen.hpp"
+#include "Screen/Include/MenuScreen.hpp"
 
 MenuScreen::MenuScreen( ) :
         _menupos( 0 )
@@ -75,4 +75,9 @@ void MenuScreen::Update( )
             }
             break;
     }
+}
+
+void MenuScreen::NextScreen( )
+{
+
 }

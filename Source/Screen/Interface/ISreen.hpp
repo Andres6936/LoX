@@ -1,8 +1,9 @@
 #ifndef _LoX_STATE
 #define _LoX_STATE
 
-#include "Include/Common.hpp"
+#pragma once
 
+#include "Include/Common.hpp"
 #include "Include/Renderer.hpp"
 
 /* enumeration of all possible game states */
@@ -31,6 +32,8 @@ public:
     virtual void Update( ) = 0;
 
     virtual void Draw( ) = 0;
+
+    virtual void NextScreen() = 0;
 
     UChar GetState( ) const
     { return _state; }
