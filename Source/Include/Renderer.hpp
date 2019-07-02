@@ -39,9 +39,12 @@ class Renderer
     void DrawCreature( Creature *creature );
 
 public:
+
     Renderer( );
 
     ~Renderer( );
+
+    static Renderer &GetInstance();
 
     /* this method handles the draw process for a level */
     void DrawMap( Level &level, Character &player );

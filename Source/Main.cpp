@@ -1,3 +1,4 @@
+#include <Include/Application.hpp>
 #include "Include/Common.hpp"
 #include "Screen/Interface/ISreen.hpp"
 #include "Screen/Include/MenuScreen.hpp"
@@ -5,22 +6,10 @@
 
 int main( int argc, char* argv[] )
 {
-    /* initialise random seed */
+    // Initialise Random Seed.
     srand( time( nullptr ));
 
-    /* initialise state machine */
-    IScreen *states[STATE_EXIT];
-
-    MenuScreen menu;
-    PlayScreen lox;
-
-    states[ 0 ] = &menu;
-    states[ 1 ] = &lox;
-
-    /* game loop */
-    while ( states[ 0 ]->GetState( ) != STATE_EXIT )
-    {
-        states[ states[ 0 ]->GetState( ) ]->Draw( );
-        states[ states[ 0 ]->GetState( ) ]->Update( );
-    }
+    Application app = Application::GetInstance();
+    app.SetScreen( MenuScreen::GetInstance() );
+    app.OnExecute();
 }

@@ -7,9 +7,9 @@ INCLUDE_DIRECTORIES(Source)
 
 ADD_EXECUTABLE(LoX
         Source/Main.cpp
-        Source/Screen/Interface/ISreen.cpp
         Source/Screen/MenuScreen.cpp
         Source/Screen/PlayScreen.cpp
+        Source/Application.cpp
         Source/Character.cpp
         Source/Creature.cpp
         Source/DieRoll.cpp

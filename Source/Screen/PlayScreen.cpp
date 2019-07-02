@@ -14,8 +14,16 @@ PlayScreen::~PlayScreen( )
     dungeon.clear( );
 }
 
+PlayScreen &PlayScreen::GetInstance( )
+{
+    static PlayScreen instance;
+    return instance;
+}
+
 void PlayScreen::Draw( )
 {
+    clear();
+
     /* LEVEL DRAWING */
     renderer.DrawMap( dungeon[ level ], character );
 
@@ -39,8 +47,7 @@ void PlayScreen::Update( )
     switch ( renderer.GetKey( ))
     {
         /* QUIT GAME */
-        case 'q':
-            _state = STATE_EXIT;
+        case 'q':;
             break;
 
             /* MOVEMENT KEYS */
@@ -109,7 +116,7 @@ void PlayScreen::Update( )
             if ( character.Pos( ) == dungeon[ level ].StairUp( ))
             {
                 if ( level == 0 )
-                { _state = STATE_EXIT; }
+                { }
                 else
                 { level--; }
                 character.Pos( dungeon[ level ].StairDown( ));
@@ -131,7 +138,22 @@ void PlayScreen::Update( )
             for ( Level &level: dungeon )
             { level.Generate( ); }
             break;
+
+        default:
+
+            break;
     }
+}
+
+void PlayScreen::OnEntry( )
+{
+    Draw();
+    Update();
+}
+
+void PlayScreen::OnExit( )
+{
+
 }
 
 void PlayScreen::NextScreen( )

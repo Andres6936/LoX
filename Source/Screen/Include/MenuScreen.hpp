@@ -3,27 +3,41 @@
 
 #pragma once
 
-#include "Include/Common.hpp"
-#include "Interface/ISreen.hpp"
+#include "../Interface/ISreen.hpp"
+#include <Include/Application.hpp>
+#include <Include/Renderer.hpp>
+#include "PlayScreen.hpp"
 
 /* enumeration of items on the main menu */
-enum main_menu_items
+enum EItemMenu
 {
-    MENU_MAIN_ITEM_NEW = 0,
-    MENU_MAIN_ITEM_QUIT
+    MENU_PLAY_GAME,
+    MENU_EXIT_GAME
 };
 
 class MenuScreen : public IScreen
 {
-    UChar _menupos;
+
+private:
+
+    EItemMenu itemMenu = MENU_PLAY_GAME;
+
+    Application app = Application::GetInstance();
+    Renderer renderer = Renderer::GetInstance();
 
 public:
 
     MenuScreen( );
 
+    static MenuScreen &GetInstance();
+
     void Update( ) override;
 
     void Draw( ) override;
+
+    void OnEntry() override;
+
+    void OnExit() override;
 
     void NextScreen() override;
 };

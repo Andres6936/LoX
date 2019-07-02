@@ -3,7 +3,8 @@
 
 #pragma once
 
-#include "Interface/ISreen.hpp"
+#include "../Interface/ISreen.hpp"
+#include <Include/Renderer.hpp>
 #include "Include/Item.hpp"
 #include "Include/Level.hpp"
 #include "Include/Character.hpp"
@@ -15,15 +16,23 @@ class PlayScreen : public IScreen
     Character character;                  // player character
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)
 
+    Renderer renderer = Renderer::GetInstance();
+
 public:
 
     PlayScreen( );
 
     ~PlayScreen( ) override;
 
+    static PlayScreen &GetInstance();
+
     void Update( ) override;
 
     void Draw( ) override;
+
+    void OnEntry() override;
+
+    void OnExit() override;
 
     void NextScreen() override;
 };
