@@ -3,41 +3,18 @@
 
 #pragma once
 
+#include "Entity/Enum/EEntityTypes.hpp"
 #include "Include/Common.hpp"
 
 class Level;
 
-/* enumeration of all available creature types in the game */
-enum CreatureTypes
+class Entity
 {
-    CREATURE_NONE,
-    CREATURE_CHARACTER,
-    CREATURE_BUGBEAR,
-    CREATURE_CENTAUR,
-    CREATURE_DRAGON,
-    CREATURE_DROW_ELF,
-    CREATURE_GARGOYLE,
-    CREATURE_GIANT,
-    CREATURE_GNOLL,
-    CREATURE_GOBLIN,
-    CREATURE_HOBGOBLIN,
-    CREATURE_KOBOLD,
-    CREATURE_LIZARD,
-    CREATURE_MINOTAUR,
-    CREATURE_OGRE,
-    CREATURE_OGRE_MAGE,
-    CREATURE_ORC,
-    CREATURE_RAKSHASA,
-    CREATURE_RODENT,
-    CREATURE_SATYR,
-    CREATURE_TROGLODYTE,
-    CREATURE_TROLL,
-    CREATURE_UNBODIED
-};
+    /**
+     * Type of this creature.
+     */
+    EEntityTypes type;
 
-class Creature
-{
-    UChar type{ };                    // type of this creature
     UInt hp;                       // hit points
     UInt maxHp;                   // maximum hit points
     UInt mp;                       // mana points
@@ -60,13 +37,9 @@ class Creature
 
 public:
 
-    Creature( );
+    Entity( );
 
-    /* Creature constructor takes an argument to set the creature type */
-    explicit Creature( UChar type );
-
-    /* virtual destructor for Creature class */
-    virtual ~Creature( ) = default;
+    virtual ~Entity( ) = default;
 
     /* this method adds a vector (in the form of two ints) to coordinate */
     void AddPos( int x, int y )
@@ -82,9 +55,9 @@ public:
     /* this method calculates the Field-Of-View for this creature */
     void FOV( Level &level );
 
-    /* get methods for attributes */
-    UChar Type( ) const
-    { return type; }
+    // Getter Methods
+
+    EEntityTypes GetType( ) const;
 
     UInt Hp( ) const
     { return hp; }
@@ -133,6 +106,10 @@ public:
 
     UInt Cha( ) const
     { return charisma; }
+
+    // Setter Methods
+
+    void SetType( EEntityTypes nType );
 
     /* VIRTUAL METHODS */
 

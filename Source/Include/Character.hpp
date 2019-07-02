@@ -2,7 +2,7 @@
 #define _LoX_CHARACTER
 
 #include "Common.hpp"
-#include "Creature.hpp"
+#include "Entity/Include/Entity.hpp"
 
 /* enumeration of all available races in the game */
 enum Races
@@ -45,7 +45,7 @@ enum Alignments
     CHAOTIC_EVIL
 };
 
-class Character : public Creature
+class Character : public Entity
 {
     std::string name;
 

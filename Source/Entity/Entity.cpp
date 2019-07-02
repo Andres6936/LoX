@@ -1,7 +1,7 @@
-#include "Include/Creature.hpp"
+#include "Entity/Include/Entity.hpp"
 #include "Include/Level.hpp"
 
-Creature::Creature( )
+Entity::Entity( )
 {
     type = CREATURE_NONE;
     hp = 8;
@@ -21,26 +21,18 @@ Creature::Creature( )
 
 }
 
-Creature::Creature( UChar type )
+EEntityTypes Entity::GetType( ) const
 {
-    // TODO: Add generation for stats depending on type
-    type = type;
-    hp = maxHp = 8;
-    mp = maxMp = 8;
-    experience = 0;
-    coordinate = { 0, 0 };
+    return type;
+}
 
-    strength = 8;
-    dexterity = 8;
-    speed = 8;
-    endurance = 8;
-    intelligence = 8;
-    wisdom = 8;
-    charisma = 8;
+void Entity::SetType( EEntityTypes nType )
+{
+    type = nType;
 }
 
 void
-Creature::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
+Entity::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
                       UInt xy, UInt yx, UInt yy )
 {
     if ( start_slope < end_slope )
@@ -111,7 +103,7 @@ const int octantMatrix[4][8] = {
         { 1, 0, 0,  1,  -1, 0,  0,  -1 }
 };
 
-void Creature::FOV( Level &level )
+void Entity::FOV( Level &level )
 {
     vision.clear( );
     for ( UInt i = 0; i < 8; i++ )

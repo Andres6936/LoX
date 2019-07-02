@@ -11,7 +11,7 @@ ADD_EXECUTABLE(LoX
         Source/Screen/PlayScreen.cpp
         Source/Application.cpp
         Source/Character.cpp
-        Source/Creature.cpp
+        Source/Entity/Entity.cpp
         Source/DieRoll.cpp
         Source/Item.cpp
         Source/Level.cpp

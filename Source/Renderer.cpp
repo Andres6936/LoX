@@ -99,7 +99,7 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     }
 }
 
-void Renderer::DrawCreature( Creature *creature )
+void Renderer::DrawCreature( Entity *creature )
 {
     /* calculate drawing offsets */
     UInt maxx, maxy;
@@ -108,7 +108,7 @@ void Renderer::DrawCreature( Creature *creature )
     int yoffset = creature->Y( ) - ( maxy / 2 );
 
     /* if the object passed is a character, cast to character and display symbol based on race */
-    if ( creature->Type( ) == CREATURE_CHARACTER )
+    if ( creature->GetType( ) == CREATURE_CHARACTER )
     {
         symbol_map _char = character_symbols[ dynamic_cast<Character *>(creature)->GetRace( ) ];
         wattron( win_map, COLOR_PAIR( _char.col ));
@@ -117,7 +117,7 @@ void Renderer::DrawCreature( Creature *creature )
     }
     else
     {
-        symbol_map _creature = creature_symbols[ creature->Type( ) ];
+        symbol_map _creature = creature_symbols[ creature->GetType( ) ];
         wattron( win_map, COLOR_PAIR( _creature.col ));
         mvwaddch( win_map, creature->Y( ) - yoffset, creature->X( ) - xoffset, _creature.sym );
         wattroff( win_map, COLOR_PAIR( _creature.col ));

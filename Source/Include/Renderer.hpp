@@ -38,7 +38,7 @@ class Renderer
     void DrawTile( Tile &tile, int x, int y );
 
     /* this method draws a creature at it's position */
-    void DrawCreature( Creature *creature );
+    void DrawCreature( Entity *creature );
 
 public:
 

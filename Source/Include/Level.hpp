@@ -11,7 +11,7 @@
 #define LEVEL_WIDTH 64
 #define LEVEL_HEIGHT 64
 
-class Creature;
+class Entity;
 
 class Character;
 
@@ -45,7 +45,7 @@ class Level
 {
     Tile **_map;                        // 2D array of tiles that form a level
     Vector2D _stairDown, _stairUp;      // coordinates of stairs up and down
-    std::vector <Creature> _creatures;   // array of creatures on this level
+    std::vector <Entity> _creatures;   // array of creatures on this level
     UInt _w;                            // width of level
     UInt _h;                            // height of level
 

@@ -1,7 +1,9 @@
 #include "Include/Character.hpp"
 
-Character::Character( ) : Creature( )
+Character::Character( ) : Entity( )
 {
+    SetType( CREATURE_CHARACTER );
+
     name = "Comodin";
     sex = true;
     age = 69;
@@ -10,8 +12,10 @@ Character::Character( ) : Creature( )
     alignment = TRUE_NEUTRAL;
 }
 
-Character::Character( std::string nName ) : Creature( )
+Character::Character( std::string nName ) : Entity( )
 {
+    SetType( CREATURE_CHARACTER );
+
     name = nName;
     sex = true;
     age = 69;

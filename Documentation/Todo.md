@@ -9,7 +9,7 @@ Add character creation menu
 Create inventory system
 Create combat system
 Create spell system
-Update Creature AI to handle combat/magic/etc.
+Update Entity AI to handle combat/magic/etc.
 
 Possible Features/Future Expansion:
 -----------------------------------
