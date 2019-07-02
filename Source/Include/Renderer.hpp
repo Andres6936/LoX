@@ -1,6 +1,8 @@
 #ifndef _LoX_RENDERER
 #define _LoX_RENDERER
 
+#pragma once
+
 #include "Common.hpp"
 #include "Level.hpp"
 #include "Character.hpp"
