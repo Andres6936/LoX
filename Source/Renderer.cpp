@@ -110,7 +110,7 @@ void Renderer::DrawCreature( Creature *creature )
     /* if the object passed is a character, cast to character and display symbol based on race */
     if ( creature->Type( ) == CREATURE_CHARACTER )
     {
-        symbol_map _char = character_symbols[ dynamic_cast<Character *>(creature)->Race( ) ];
+        symbol_map _char = character_symbols[ dynamic_cast<Character *>(creature)->GetRace( ) ];
         wattron( win_map, COLOR_PAIR( _char.col ));
         mvwaddch( win_map, creature->Y( ) - yoffset, creature->X( ) - xoffset, _char.sym );
         wattroff( win_map, COLOR_PAIR( _char.col ));
@@ -154,12 +154,12 @@ void Renderer::DrawStats( Character player, UChar level )
     box( win_stats, 0, 0 );
 
     /* display name */
-    std::string str = player.Name( );
+    std::string str = player.GetName( );
     wattron( win_stats, COLOR_PAIR( COL_YELLOW ));
     mvwaddstr( win_stats, 1, 1, str.c_str( ));
 
     /* display race */
-    switch ( player.Race( ))
+    switch ( player.GetRace( ))
     {
         case RACE_HUMAN:
             str = "Human";
@@ -187,7 +187,7 @@ void Renderer::DrawStats( Character player, UChar level )
     }
 
     /* display class */
-    switch ( player.Class( ))
+    switch ( player.GetClass( ))
     {
         case CLASS_BARBARIAN:
             str += " Barbarian";

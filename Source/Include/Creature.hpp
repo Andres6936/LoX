@@ -10,6 +10,7 @@ class Level;
 /* enumeration of all available creature types in the game */
 enum CreatureTypes
 {
+    CREATURE_NONE,
     CREATURE_CHARACTER,
     CREATURE_BUGBEAR,
     CREATURE_CENTAUR,
@@ -36,14 +37,14 @@ enum CreatureTypes
 
 class Creature
 {
-    UChar _type;                    // type of this creature
-    UInt _hp;                       // hit points
-    UInt _max_hp;                   // maximum hit points
-    UInt _mp;                       // mana points
-    UInt _max_mp;                   // maximum mana points
-    UInt _xp;                       // experience points
-    Vector2D _pos;                  // coordinates of this creature on map
-    std::vector <Vector2D> _vis;     // array of coordinates that this creature can see
+    UChar type{ };                    // type of this creature
+    UInt hp;                       // hit points
+    UInt maxHp;                   // maximum hit points
+    UInt mp;                       // mana points
+    UInt maxMp;                   // maximum mana points
+    UInt experience;                       // experience points
+    Vector2D coordinate{ };                  // coordinates of this creature on map
+    std::vector <Vector2D> vision;     // array of coordinates that this creature can see
 
     UInt strength;
     UInt dexterity;
@@ -53,61 +54,64 @@ class Creature
     UInt wisdom;
     UInt charisma;
 
-    /* this function fills _vis with level coordinates visible to this creature */
+    /* this function fills vision with level coordinates visible to this creature */
     void shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
                      UInt xy, UInt yx, UInt yy );
 
 public:
+
+    Creature( );
+
     /* Creature constructor takes an argument to set the creature type */
     explicit Creature( UChar type );
 
     /* virtual destructor for Creature class */
     virtual ~Creature( ) = default;
 
-    /* this method adds a vector (in the form of two ints) to _pos */
+    /* this method adds a vector (in the form of two ints) to coordinate */
     void AddPos( int x, int y )
     {
-        _pos.x += x;
-        _pos.y += y;
+        coordinate.x += x;
+        coordinate.y += y;
     }
 
-    /* this method explicitally sets _pos */
+    /* this method explicitally sets coordinate */
     void Pos( Vector2D pos )
-    { _pos = pos; }
+    { coordinate = pos; }
 
     /* this method calculates the Field-Of-View for this creature */
     void FOV( Level &level );
 
     /* get methods for attributes */
     UChar Type( ) const
-    { return _type; }
+    { return type; }
 
     UInt Hp( ) const
-    { return _hp; }
+    { return hp; }
 
     UInt MaxHp( ) const
-    { return _max_hp; }
+    { return maxHp; }
 
     UInt Mp( ) const
-    { return _mp; }
+    { return mp; }
 
     UInt MaxMp( ) const
-    { return _max_mp; }
+    { return maxMp; }
 
     UInt Xp( ) const
-    { return _xp; }
+    { return experience; }
 
     Vector2D Pos( ) const
-    { return _pos; }
+    { return coordinate; }
 
     UInt X( ) const
-    { return _pos.x; }
+    { return coordinate.x; }
 
     UInt Y( ) const
-    { return _pos.y; }
+    { return coordinate.y; }
 
     std::vector <Vector2D> Vis( ) const
-    { return _vis; }
+    { return vision; }
 
     UInt Str( ) const
     { return strength; }

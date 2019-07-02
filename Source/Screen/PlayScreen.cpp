@@ -1,8 +1,8 @@
 #include "Screen/Include/PlayScreen.hpp"
 
-PlayScreen::PlayScreen( ) :
-        character( "Player" )
+PlayScreen::PlayScreen( )
 {
+    character = Character( "Slash" );
     Level tmp( LEVEL_WIDTH, LEVEL_HEIGHT );
     dungeon.push_back( tmp );
     level = 0;

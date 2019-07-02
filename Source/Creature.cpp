@@ -1,14 +1,35 @@
 #include "Include/Creature.hpp"
 #include "Include/Level.hpp"
 
+Creature::Creature( )
+{
+    type = CREATURE_NONE;
+    hp = 8;
+    maxHp = 8;
+    mp = 8;
+    maxMp = 8;
+    experience = 0;
+    coordinate = { 0, 0 };
+
+    strength = 8;
+    dexterity = 8;
+    speed = 8;
+    endurance = 8;
+    intelligence = 8;
+    wisdom = 8;
+    charisma = 8;
+
+}
+
 Creature::Creature( UChar type )
 {
     // TODO: Add generation for stats depending on type
-    _type = type;
-    _hp = _max_hp = 8;
-    _mp = _max_mp = 8;
-    _xp = 0;
-    _pos = { 0, 0 };
+    type = type;
+    hp = maxHp = 8;
+    mp = maxMp = 8;
+    experience = 0;
+    coordinate = { 0, 0 };
+
     strength = 8;
     dexterity = 8;
     speed = 8;
@@ -54,7 +75,7 @@ Creature::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float
             if (( UInt )( dx * dx + dy * dy ) < radius2 )
             {
                 Vector2D tmp = { ax, ay };
-                _vis.push_back( tmp );
+                vision.push_back( tmp );
             }
 
             if ( blocked )
@@ -92,10 +113,10 @@ const int octantMatrix[4][8] = {
 
 void Creature::FOV( Level &level )
 {
-    _vis.clear( );
+    vision.clear( );
     for ( UInt i = 0; i < 8; i++ )
     {
-        shadowcast( level, _pos.x, _pos.y, 10, 1, 1.0, 0.0, octantMatrix[ 0 ][ i ], octantMatrix[ 1 ][ i ],
+        shadowcast( level, coordinate.x, coordinate.y, 10, 1, 1.0, 0.0, octantMatrix[ 0 ][ i ], octantMatrix[ 1 ][ i ],
                     octantMatrix[ 2 ][ i ], octantMatrix[ 3 ][ i ] );
     }
 }

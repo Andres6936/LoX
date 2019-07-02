@@ -47,40 +47,35 @@ enum Alignments
 
 class Character : public Creature
 {
-    std::string _name;  // name
-    UInt _age;          // age
-    bool _sex;          // gender
-    UChar _race;        // race
-    UChar __class;      // class
-    UChar _alignment;   // alignment
+    std::string name;
+
+    bool sex;
+
+    UInt age;
+
+    UChar race;
+    UChar aClass;
+    UChar alignment;
 
 public:
-    /*
-     * Character constructor takes arguments to set the above attributes.
-     * Only name is required, default values are provided for the others
-     */
-    explicit Character( std::string name, UInt age = 30, bool sex = true,
-                        UChar race = RACE_HUMAN, UChar _class = CLASS_FIGHTER,
-                        UChar alignment = TRUE_NEUTRAL );
 
-    /* get methods for attributes */
-    std::string Name( ) const
-    { return _name; }
+    Character( );
 
-    UInt Age( ) const
-    { return _age; }
+    explicit Character( std::string nName );
 
-    bool Sex( ) const
-    { return _sex; }
+    // Getter Methods
 
-    UChar Race( ) const
-    { return _race; }
+    std::string GetName( ) const;
 
-    UChar Class( ) const
-    { return __class; }
+    bool GetSex( ) const;
 
-    UChar Alignment( ) const
-    { return _alignment; }
+    UInt GetAge( ) const;
+
+    UChar GetRace( ) const;
+
+    UChar GetClass( ) const;
+
+    UChar GetAlignment( ) const;
 };
 
 #endif

@@ -11,9 +11,10 @@
 
 class PlayScreen : public IScreen
 {
+    Character character;
+
     std::vector <Level> dungeon;        // array of dungeons
     UInt level;                        // current dungeon level
-    Character character;                  // player character
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)
 
     Renderer &renderer = Renderer::GetInstance( );
