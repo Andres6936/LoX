@@ -22,7 +22,7 @@ private:
 
     EItemMenu itemMenu = MENU_PLAY_GAME;
 
-    Renderer renderer = Renderer::GetInstance();
+    Renderer &renderer = Renderer::GetInstance();
 
 public:
 

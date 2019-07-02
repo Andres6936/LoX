@@ -16,7 +16,7 @@ class PlayScreen : public IScreen
     Character character;                  // player character
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)
 
-    Renderer renderer = Renderer::GetInstance();
+    Renderer &renderer = Renderer::GetInstance();
 
 public:
 
