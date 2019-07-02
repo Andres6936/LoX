@@ -22,7 +22,6 @@ private:
 
     EItemMenu itemMenu = MENU_PLAY_GAME;
 
-    Application app = Application::GetInstance();
     Renderer renderer = Renderer::GetInstance();
 
 public:

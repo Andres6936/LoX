@@ -9,7 +9,6 @@ int main( int argc, char* argv[] )
     // Initialise Random Seed.
     srand( time( nullptr ));
 
-    Application app = Application::GetInstance();
-    app.SetScreen( MenuScreen::GetInstance() );
-    app.OnExecute();
+    Application::GetInstance().SetScreen( MenuScreen::GetInstance() );
+    Application::GetInstance().OnExecute();
 }
