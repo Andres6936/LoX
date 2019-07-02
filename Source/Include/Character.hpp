@@ -60,8 +60,8 @@ public:
      * Only name is required, default values are provided for the others
      */
     explicit Character( std::string name, UInt age = 30, bool sex = true,
-               UChar race = RACE_HUMAN, UChar _class = CLASS_FIGHTER,
-               UChar alignment = TRUE_NEUTRAL );
+                        UChar race = RACE_HUMAN, UChar _class = CLASS_FIGHTER,
+                        UChar alignment = TRUE_NEUTRAL );
 
     /* get methods for attributes */
     std::string Name( ) const

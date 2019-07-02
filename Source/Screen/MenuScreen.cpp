@@ -78,11 +78,11 @@ void MenuScreen::Update( )
 
             if ( itemMenu == MENU_PLAY_GAME )
             {
-                Application::GetInstance().SetScreen( PlayScreen::GetInstance( ) );
+                Application::GetInstance( ).SetScreen( PlayScreen::GetInstance( ));
             }
             else if ( itemMenu == MENU_EXIT_GAME )
             {
-                Application::GetInstance().OnExit();
+                Application::GetInstance( ).OnExit( );
             }
 
             break;

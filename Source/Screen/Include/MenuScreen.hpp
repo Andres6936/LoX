@@ -22,13 +22,13 @@ private:
 
     EItemMenu itemMenu = MENU_PLAY_GAME;
 
-    Renderer &renderer = Renderer::GetInstance();
+    Renderer &renderer = Renderer::GetInstance( );
 
 public:
 
     MenuScreen( );
 
-    static MenuScreen &GetInstance();
+    static MenuScreen &GetInstance( );
 
     void Update( ) override;
 

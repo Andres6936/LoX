@@ -46,7 +46,7 @@ public:
 
     ~Renderer( );
 
-    static Renderer &GetInstance();
+    static Renderer &GetInstance( );
 
     /* this method handles the draw process for a level */
     void DrawMap( Level &level, Character &player );

@@ -14,27 +14,27 @@ private:
 
     IScreen *screen = nullptr;
 
-    Application() = default;
+    Application( ) = default;
 
 public:
 
     // Constructs
 
-    Application(Application const&) = delete; // Copy construct
-    Application(Application &&) = delete; // Move construct
+    Application( Application const & ) = delete; // Copy construct
+    Application( Application && ) = delete; // Move construct
 
-    static Application &GetInstance();
+    static Application &GetInstance( );
 
-    void OnExecute();
+    void OnExecute( );
 
-    void OnExit();
+    void OnExit( );
 
-    void SetScreen(IScreen &nIScreen);
+    void SetScreen( IScreen &nIScreen );
 
     // Operator
 
-    Application& operator = (Application const&) = delete; // Copy assign
-    Application& operator = (Application &&) = delete; // Move assign
+    Application &operator=( Application const & ) = delete; // Copy assign
+    Application &operator=( Application && ) = delete; // Move assign
 
 };
 

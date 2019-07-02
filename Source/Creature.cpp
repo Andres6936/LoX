@@ -51,7 +51,7 @@ Creature::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float
             { continue; }
 
             UInt radius2 = radius * radius;
-            if (( UInt ) ( dx * dx + dy * dy ) < radius2 )
+            if (( UInt )( dx * dx + dy * dy ) < radius2 )
             {
                 Vector2D tmp = { ax, ay };
                 _vis.push_back( tmp );

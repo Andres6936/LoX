@@ -8,10 +8,10 @@ Application &Application::GetInstance( )
 
 void Application::OnExecute( )
 {
-    while (running)
+    while ( running )
     {
-        screen->Draw();
-        screen->Update();
+        screen->Draw( );
+        screen->Update( );
     }
 }
 

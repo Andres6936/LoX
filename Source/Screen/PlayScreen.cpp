@@ -22,7 +22,7 @@ PlayScreen &PlayScreen::GetInstance( )
 
 void PlayScreen::Draw( )
 {
-    clear();
+    clear( );
 
     /* LEVEL DRAWING */
     renderer.DrawMap( dungeon[ level ], character );
