@@ -93,18 +93,3 @@ void MenuScreen::Update( )
     }
 }
 
-void MenuScreen::OnEntry( )
-{
-    Draw( );
-    Update( );
-}
-
-void MenuScreen::OnExit( )
-{
-
-}
-
-void MenuScreen::NextScreen( )
-{
-
-}

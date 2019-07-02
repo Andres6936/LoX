@@ -16,12 +16,6 @@ public:
 
     virtual void Draw( ) = 0;
 
-    virtual void OnEntry() = 0;
-
-    virtual void OnExit() = 0;
-
-    virtual void NextScreen() = 0;
-
 };
 
 #endif

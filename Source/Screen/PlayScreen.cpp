@@ -145,18 +145,3 @@ void PlayScreen::Update( )
     }
 }
 
-void PlayScreen::OnEntry( )
-{
-    Draw();
-    Update();
-}
-
-void PlayScreen::OnExit( )
-{
-
-}
-
-void PlayScreen::NextScreen( )
-{
-
-}

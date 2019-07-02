@@ -30,11 +30,6 @@ public:
 
     void Draw( ) override;
 
-    void OnEntry() override;
-
-    void OnExit() override;
-
-    void NextScreen() override;
 };
 
 #endif
