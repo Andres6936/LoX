@@ -6,7 +6,7 @@
 #include "Include/Common.hpp"
 #include "Include/Item.hpp"
 #include <Entity/Include/Entity.hpp>
-#include "Matrix/Enum/EMapTiles.hpp"
+#include "Matrix/Enum/ETypeTiles.hpp"
 #include "Tile.hpp"
 
 #include <ctime>
@@ -14,14 +14,6 @@
 
 #define LEVEL_WIDTH 64
 #define LEVEL_HEIGHT 64
-
-/* lookup table for all map tiles in the game */
-const Tile tiles[] = {
-        {{ }, MAP_FLOOR,      true,  false },
-        {{ }, MAP_WALL,       false, true },
-        {{ }, MAP_STAIR_UP,   true,  false },
-        {{ }, MAP_STAIR_DOWN, true,  false }
-};
 
 class TheMatrix
 {
@@ -37,7 +29,7 @@ class TheMatrix
     int passes;                // number of algorithm passes made when generating
 
     /* this method is used by the Generate method to randomly choose a tile type */
-    int randpick( );
+    Tile GetRandomPickTile( );
 
 public:
 

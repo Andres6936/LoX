@@ -84,7 +84,8 @@ void Renderer::UpdateMap( TheMatrix &level, Character player )
 
 void Renderer::DrawTile( Tile &tile, int x, int y )
 {
-    symbol_map _tile = tile_symbols[ tile.type ];
+    // -1 porque se añadio un nuevo elemento en la enumeración.
+    symbol_map _tile = tile_symbols[ tile.type - 1 ];
     wattron( win_map, COLOR_PAIR( _tile.col ));
     mvwaddch( win_map, y, x, _tile.sym );
     wattroff( win_map, COLOR_PAIR( _tile.col ));

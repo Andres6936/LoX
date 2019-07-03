@@ -49,25 +49,30 @@ TheMatrix::~TheMatrix( )
     delete[] map;
 }
 
-int TheMatrix::randpick( )
+Tile TheMatrix::GetRandomPickTile( )
 {
     if ( rand( ) % 100 < fillProbability )
-    { return MAP_WALL; }
-    return MAP_FLOOR;
+    {
+        return Tile( TYPE_TILE_WALL, false, true );
+    }
+    else
+    {
+        return Tile( TYPE_TILE_FLOOR, true, false );
+    }
 }
 
 void floodmap( Tile **&map, Tile **&flag, UInt x, UInt y )
 {
     // do nothing if this cell is a wall
-    if ( map[ y ][ x ].type == MAP_WALL )
+    if ( map[ y ][ x ].type == TYPE_TILE_WALL )
     { return; }
 
     // do nothing if we have already flagged this cell
-    if ( flag[ y ][ x ].type == MAP_FLOOR )
+    if ( flag[ y ][ x ].type == TYPE_TILE_FLOOR )
     { return; }
 
     // flag this cell as floor
-    flag[ y ][ x ] = tiles[ MAP_FLOOR ];
+    flag[ y ][ x ] = Tile( TYPE_TILE_FLOOR, true, false );
 
     // call recursively in all directions
     floodmap( map, flag, x - 1, y );
@@ -95,7 +100,7 @@ void TheMatrix::GenerateLevel( )
         {
             for ( UInt x = 1; x < WIDTH; x++ )
             {
-                map[ y ][ x ] = tiles[ randpick( ) ];
+                map[ y ][ x ] = GetRandomPickTile( );
             }
         }
 
@@ -104,18 +109,18 @@ void TheMatrix::GenerateLevel( )
         {
             for ( UInt x = 0; x < WIDTH; x++ )
             {
-                new_map[ y ][ x ] = tiles[ MAP_WALL ];
+                new_map[ y ][ x ] = Tile( TYPE_TILE_WALL, false, true );
             }
         }
 
         // ensure the level has outer walls
         for ( UInt y = 0; y < HEIGHT; y++ )
         {
-            map[ y ][ 0 ] = map[ y ][ WIDTH - 1 ] = tiles[ MAP_WALL ];
+            map[ y ][ 0 ] = map[ y ][ WIDTH - 1 ] = Tile( TYPE_TILE_WALL, false, true );
         }
         for ( UInt x = 0; x < WIDTH; x++ )
         {
-            map[ 0 ][ x ] = map[ HEIGHT - 1 ][ x ] = tiles[ MAP_WALL ];
+            map[ 0 ][ x ] = map[ HEIGHT - 1 ][ x ] = Tile( TYPE_TILE_WALL, false, true );
         }
 
         // run cellular autonoma algorithm
@@ -130,7 +135,7 @@ void TheMatrix::GenerateLevel( )
                 {
                     for ( int j = -1; j <= 1; j++ )
                     {
-                        if ( map[ y + i ][ x + j ].type != MAP_FLOOR )
+                        if ( map[ y + i ][ x + j ].type != TYPE_TILE_FLOOR )
                         { adjcount_r1++; }
                     }
                 }
@@ -143,7 +148,7 @@ void TheMatrix::GenerateLevel( )
                         { continue; }
                         if ( i >= HEIGHT || j >= WIDTH )
                         { continue; }
-                        if ( map[ i ][ j ].type != MAP_FLOOR )
+                        if ( map[ i ][ j ].type != TYPE_TILE_FLOOR )
                         { adjcount_r2++; }
                     }
                 }
@@ -151,11 +156,11 @@ void TheMatrix::GenerateLevel( )
                 // select new tile for this position
                 if ( adjcount_r1 >= r1Cutoff || adjcount_r2 <= r2Cutoff )
                 {
-                    new_map[ y ][ x ] = tiles[ MAP_WALL ];
+                    new_map[ y ][ x ] = Tile( TYPE_TILE_WALL, false, true );
                 }
                 else
                 {
-                    new_map[ y ][ x ] = tiles[ MAP_FLOOR ];
+                    new_map[ y ][ x ] = Tile( TYPE_TILE_FLOOR, true, false );
                 }
             }
         }
@@ -167,7 +172,7 @@ void TheMatrix::GenerateLevel( )
             rnd_x = rand( ) % WIDTH;
             rnd_y = rand( ) % HEIGHT;
 
-            if ( new_map[ rnd_y ][ rnd_x ].type == MAP_FLOOR )
+            if ( new_map[ rnd_y ][ rnd_x ].type == TYPE_TILE_FLOOR )
             { break; }
         }
 
@@ -175,7 +180,7 @@ void TheMatrix::GenerateLevel( )
         {
             for ( UInt x = 0; x < WIDTH; x++ )
             {
-                flooded_map[ y ][ x ] = tiles[ MAP_WALL ];
+                flooded_map[ y ][ x ] = Tile( TYPE_TILE_WALL, false, true );
             }
         }
 
@@ -187,7 +192,7 @@ void TheMatrix::GenerateLevel( )
         {
             for ( UInt x = 0; x < WIDTH; x++ )
             {
-                if ( flooded_map[ y ][ x ].type == MAP_FLOOR )
+                if ( flooded_map[ y ][ x ].type == TYPE_TILE_FLOOR )
                 { floorcount++; }
             }
         }
@@ -203,9 +208,9 @@ void TheMatrix::GenerateLevel( )
         rnd_x = rand( ) % WIDTH;
         rnd_y = rand( ) % HEIGHT;
 
-        if ( flooded_map[ rnd_y ][ rnd_x ].type == MAP_FLOOR )
+        if ( flooded_map[ rnd_y ][ rnd_x ].type == TYPE_TILE_FLOOR )
         {
-            flooded_map[ rnd_y ][ rnd_x ] = tiles[ MAP_STAIR_DOWN ];
+            flooded_map[ rnd_y ][ rnd_x ] = Tile( TYPE_TILE_STAIR_DOWN, true, false );
             stairDown.x = rnd_x;
             stairDown.y = rnd_y;
             break;
@@ -216,9 +221,9 @@ void TheMatrix::GenerateLevel( )
         rnd_x = rand( ) % WIDTH;
         rnd_y = rand( ) % HEIGHT;
 
-        if ( flooded_map[ rnd_y ][ rnd_x ].type == MAP_FLOOR )
+        if ( flooded_map[ rnd_y ][ rnd_x ].type == TYPE_TILE_FLOOR )
         {
-            flooded_map[ rnd_y ][ rnd_x ] = tiles[ MAP_STAIR_UP ];
+            flooded_map[ rnd_y ][ rnd_x ] = Tile( TYPE_TILE_STAIR_UP, true, false );
             stairUp.x = rnd_x;
             stairUp.y = rnd_y;
             break;
@@ -251,7 +256,7 @@ void TheMatrix::GenerateLevel( )
         tmp.Set( 1, WIDTH - 1, 0 );
         UInt x = DieRoll::Roll( tmp );
 
-        if ( map[ y ][ x ].type == MAP_FLOOR )
+        if ( map[ y ][ x ].type == TYPE_TILE_FLOOR )
         { map[ y ][ x ].items.push_back( Item::Generate( )); }
     }
 }

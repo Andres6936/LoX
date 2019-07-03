@@ -74,10 +74,10 @@ struct symbol_map
 
 /* symbol map for map tiles */
 const symbol_map tile_symbols[] = {
-        { MAP_FLOOR,      '.', COL_WHITE },
-        { MAP_WALL,       '#', COL_WHITE },
-        { MAP_STAIR_UP,   '<', COL_WHITE },
-        { MAP_STAIR_DOWN, '>', COL_WHITE },
+        { TYPE_TILE_FLOOR,      '.', COL_WHITE },
+        { TYPE_TILE_WALL,       '#', COL_WHITE },
+        { TYPE_TILE_STAIR_UP,   '<', COL_WHITE },
+        { TYPE_TILE_STAIR_DOWN, '>', COL_WHITE },
 };
 
 /* symbol map for items */
