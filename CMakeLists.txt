@@ -9,12 +9,13 @@ ADD_EXECUTABLE(LoX
         Source/Main.cpp
         Source/Screen/MenuScreen.cpp
         Source/Screen/PlayScreen.cpp
+        Source/Matrix/Level.cpp
+        Source/Matrix/Tile.cpp
         Source/Application.cpp
         Source/Character.cpp
         Source/Entity/Entity.cpp
         Source/DieRoll.cpp
         Source/Item.cpp
-        Source/Level.cpp
         Source/Renderer.cpp
         )
 

@@ -1,6 +1,8 @@
 #ifndef _LoX_ITEM
 #define _LoX_ITEM
 
+#pragma once
+
 #include "Include/Common.hpp"
 
 class Item;

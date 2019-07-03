@@ -4,7 +4,7 @@
 #pragma once
 
 #include "Common.hpp"
-#include "Level.hpp"
+#include "Matrix/Include/Level.hpp"
 #include "Character.hpp"
 
 #include <curses.h>

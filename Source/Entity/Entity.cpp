@@ -1,5 +1,5 @@
 #include "Entity/Include/Entity.hpp"
-#include "Include/Level.hpp"
+#include "Matrix/Include/Level.hpp"
 
 Entity::Entity( )
 {
@@ -145,7 +145,7 @@ Entity::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float s
 
             UInt ax = x + sax;
             UInt ay = y + say;
-            if ( ax >= level.W( ) || ay >= level.H( ))
+            if ( ax >= level.WIDTH || ay >= level.HEIGHT )
             { continue; }
 
             UInt radius2 = radius * radius;

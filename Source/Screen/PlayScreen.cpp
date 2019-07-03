@@ -2,16 +2,13 @@
 
 PlayScreen::PlayScreen( )
 {
-    character = Character( "Slash" );
-    Level tmp( LEVEL_WIDTH, LEVEL_HEIGHT );
-    dungeon.push_back( tmp );
     level = 0;
-    character.Pos( dungeon[ level ].StairUp( ));
+    character.Pos( valkyria.StairUp( ));
 }
 
 PlayScreen::~PlayScreen( )
 {
-    dungeon.clear( );
+
 }
 
 PlayScreen &PlayScreen::GetInstance( )
@@ -25,15 +22,15 @@ void PlayScreen::Draw( )
     clear( );
 
     /* LEVEL DRAWING */
-    renderer.DrawMap( dungeon[ level ], character );
+    renderer.DrawMap( valkyria, character );
 
     /* STATUS DRAWING */
     renderer.DrawStats( character, level );
 
     /* print items on ground, if any */
-    if ( dungeon[ level ].HasItem( character.GetCoordinate( )))
+    if ( valkyria.HasItem( character.GetCoordinate( )))
     {
-        std::string msg = "Item here: " + dungeon[ level ].SeeItem( character.GetCoordinate( ))->Name( );
+        std::string msg = "Item here: " + valkyria.SeeItem( character.GetCoordinate( ))->Name( );
         renderer.Message( msg );
     }
 
@@ -53,7 +50,7 @@ void PlayScreen::Update( )
         case 'k':
         case '8':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
             {
                 character.WalkAt( NORTH );
             }
@@ -63,7 +60,7 @@ void PlayScreen::Update( )
         case 'j':
         case '2':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
             {
                 character.WalkAt( SOUTH );
             }
@@ -73,7 +70,7 @@ void PlayScreen::Update( )
         case 'h':
         case '4':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
             {
                 character.WalkAt( WEST );
             }
@@ -83,7 +80,7 @@ void PlayScreen::Update( )
         case 'l':
         case '6':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
             {
                 character.WalkAt( EAST );
             }
@@ -93,8 +90,8 @@ void PlayScreen::Update( )
         case 'u':
         case '7':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
-                                                                             1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
+                                                                     1 ].passable )
             {
                 character.WalkAt( NORTH_WEST );
             }
@@ -104,8 +101,8 @@ void PlayScreen::Update( )
         case 'i':
         case '9':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
-                                                                             1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
+                                                                     1 ].passable )
             {
                 character.WalkAt( NORTH_EAST );
             }
@@ -115,8 +112,8 @@ void PlayScreen::Update( )
         case 'n':
         case '1':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
-                                                                             1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
+                                                                     1 ].passable )
             {
                 character.WalkAt( SOUTH_WEST );
             }
@@ -126,8 +123,8 @@ void PlayScreen::Update( )
         case 'm':
         case '3':
 
-            if ( dungeon[ level ].Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
-                                                                             1 ].passable )
+            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
+                                                                     1 ].passable )
             {
                 character.WalkAt( SOUTH_EAST );
             }
@@ -135,44 +132,43 @@ void PlayScreen::Update( )
             break;
 
             /* LEVEL TRAVERSAL */
-        case '>':
-            if ( character.GetCoordinate( ) == dungeon[ level ].StairDown( ))
-            {
-                if ( dungeon.size( ) == ++level )
-                {
-                    Level tmp( LEVEL_WIDTH, LEVEL_HEIGHT );
-                    dungeon.push_back( tmp );
-                }
-                character.Pos( dungeon[ level ].StairUp( ));
-            }
-            break;
-
-        case '<':
-            if ( character.GetCoordinate( ) == dungeon[ level ].StairUp( ))
-            {
-                if ( level == 0 )
-                { }
-                else
-                { level--; }
-                character.Pos( dungeon[ level ].StairDown( ));
-            }
-            break;
+//        case '>':
+//            if ( character.GetCoordinate( ) == valkyria.StairDown( ))
+//            {
+//                if ( dungeon.size( ) == ++level )
+//                {
+//                    dungeon.push_back( Level ( LEVEL_WIDTH, LEVEL_HEIGHT ) );
+//                }
+//                character.Pos( valkyria.StairUp( ));
+//            }
+//            break;
+//
+//        case '<':
+//            if ( character.GetCoordinate( ) == valkyria.StairUp( ))
+//            {
+//                if ( level == 0 )
+//                { }
+//                else
+//                { level--; }
+//                character.Pos( valkyria.StairDown( ));
+//            }
+//            break;
 
             /* ITEM MANAGEMENT */
         case ',':
-            if ( dungeon[ level ].HasItem( character.GetCoordinate( )))
+            if ( valkyria.HasItem( character.GetCoordinate( )))
             {
-                inventory.push_back( dungeon[ level ].GetItem( character.GetCoordinate( )));
+                inventory.push_back( valkyria.GetItem( character.GetCoordinate( )));
                 std::string msg = "Picked up " + inventory.back( )->Name( );
                 renderer.Message( msg );
             }
             break;
 
             /* DEBUG KEYS */
-        case 'r':
-            for ( Level &level: dungeon )
-            { level.Generate( ); }
-            break;
+//        case 'r':
+//            for ( Level &level: dungeon )
+//            { level.GenerateLevel( ); }
+//            break;
 
         default:
 
