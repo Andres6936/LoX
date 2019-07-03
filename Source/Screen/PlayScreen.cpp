@@ -6,10 +6,7 @@ PlayScreen::PlayScreen( )
     character.Pos( valkyria.StairUp( ));
 }
 
-PlayScreen::~PlayScreen( )
-{
-
-}
+PlayScreen::~PlayScreen( ) = default;
 
 PlayScreen &PlayScreen::GetInstance( )
 {
