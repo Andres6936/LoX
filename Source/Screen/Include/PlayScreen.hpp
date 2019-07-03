@@ -12,7 +12,7 @@
 class PlayScreen : public IScreen
 {
     Character character = Character( "Slash" );
-    TheMatrix valkyria = TheMatrix( LEVEL_WIDTH, LEVEL_HEIGHT );
+    TheMatrix theMatrix = TheMatrix( LEVEL_WIDTH, LEVEL_HEIGHT );
 
     UInt level;                        // current dungeon level
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)

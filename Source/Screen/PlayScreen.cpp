@@ -4,7 +4,7 @@
 PlayScreen::PlayScreen( )
 {
     level = 0;
-    character.Pos( valkyria.StairUp( ));
+    character.Pos( theMatrix.StairUp( ));
 }
 
 PlayScreen::~PlayScreen( ) = default;
@@ -20,15 +20,15 @@ void PlayScreen::Draw( )
     clear( );
 
     /* LEVEL DRAWING */
-    renderer.DrawMap( valkyria, character );
+    renderer.DrawMap( theMatrix, character );
 
     /* STATUS DRAWING */
     renderer.DrawStats( character, level );
 
     /* print items on ground, if any */
-    if ( valkyria.HasItem( character.GetCoordinate( )))
+    if ( theMatrix.HasItem( character.GetCoordinate( )))
     {
-        std::string msg = "Item here: " + valkyria.SeeItem( character.GetCoordinate( ))->Name( );
+        std::string msg = "Item here: " + theMatrix.SeeItem( character.GetCoordinate( ))->Name( );
         renderer.Message( msg );
     }
 
@@ -51,7 +51,7 @@ void PlayScreen::Update( )
         case 'k':
         case '8':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
             {
                 character.WalkAt( NORTH );
             }
@@ -61,7 +61,7 @@ void PlayScreen::Update( )
         case 'j':
         case '2':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
             {
                 character.WalkAt( SOUTH );
             }
@@ -71,7 +71,7 @@ void PlayScreen::Update( )
         case 'h':
         case '4':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
             {
                 character.WalkAt( WEST );
             }
@@ -81,7 +81,7 @@ void PlayScreen::Update( )
         case 'l':
         case '6':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
             {
                 character.WalkAt( EAST );
             }
@@ -91,8 +91,8 @@ void PlayScreen::Update( )
         case 'u':
         case '7':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
-                    1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
+                                                                      1 ].passable )
             {
                 character.WalkAt( NORTH_WEST );
             }
@@ -102,8 +102,8 @@ void PlayScreen::Update( )
         case 'i':
         case '9':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
-                    1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
+                                                                      1 ].passable )
             {
                 character.WalkAt( NORTH_EAST );
             }
@@ -113,8 +113,8 @@ void PlayScreen::Update( )
         case 'n':
         case '1':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
-                    1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
+                                                                      1 ].passable )
             {
                 character.WalkAt( SOUTH_WEST );
             }
@@ -124,8 +124,8 @@ void PlayScreen::Update( )
         case 'm':
         case '3':
 
-            if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
-                    1 ].passable )
+            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
+                                                                      1 ].passable )
             {
                 character.WalkAt( SOUTH_EAST );
             }
@@ -134,32 +134,32 @@ void PlayScreen::Update( )
 
             /* LEVEL TRAVERSAL */
 //        case '>':
-//            if ( character.GetCoordinate( ) == valkyria.StairDown( ))
+//            if ( character.GetCoordinate( ) == theMatrix.StairDown( ))
 //            {
 //                if ( dungeon.size( ) == ++level )
 //                {
 //                    dungeon.push_back( TheMatrix ( LEVEL_WIDTH, LEVEL_HEIGHT ) );
 //                }
-//                character.Pos( valkyria.StairUp( ));
+//                character.Pos( theMatrix.StairUp( ));
 //            }
 //            break;
 //
 //        case '<':
-//            if ( character.GetCoordinate( ) == valkyria.StairUp( ))
+//            if ( character.GetCoordinate( ) == theMatrix.StairUp( ))
 //            {
 //                if ( level == 0 )
 //                { }
 //                else
 //                { level--; }
-//                character.Pos( valkyria.StairDown( ));
+//                character.Pos( theMatrix.StairDown( ));
 //            }
 //            break;
 
             /* ITEM MANAGEMENT */
         case ',':
-            if ( valkyria.HasItem( character.GetCoordinate( )))
+            if ( theMatrix.HasItem( character.GetCoordinate( )))
             {
-                inventory.push_back( valkyria.GetItem( character.GetCoordinate( )));
+                inventory.push_back( theMatrix.GetItem( character.GetCoordinate( )));
                 std::string msg = "Picked up " + inventory.back( )->Name( );
                 renderer.Message( msg );
             }
