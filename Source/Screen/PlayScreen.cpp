@@ -1,3 +1,4 @@
+#include <Include/Application.hpp>
 #include "Screen/Include/PlayScreen.hpp"
 
 PlayScreen::PlayScreen( )
@@ -40,7 +41,10 @@ void PlayScreen::Update( )
     switch ( renderer.GetKey( ))
     {
         /* QUIT GAME */
-        case 'q':;
+        case 'q':
+
+            Application::GetInstance( ).OnExit( );
+
             break;
 
             /* MOVEMENT KEYS */
@@ -88,7 +92,7 @@ void PlayScreen::Update( )
         case '7':
 
             if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
-                                                                     1 ].passable )
+                    1 ].passable )
             {
                 character.WalkAt( NORTH_WEST );
             }
@@ -99,7 +103,7 @@ void PlayScreen::Update( )
         case '9':
 
             if ( valkyria.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
-                                                                     1 ].passable )
+                    1 ].passable )
             {
                 character.WalkAt( NORTH_EAST );
             }
@@ -110,7 +114,7 @@ void PlayScreen::Update( )
         case '1':
 
             if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
-                                                                     1 ].passable )
+                    1 ].passable )
             {
                 character.WalkAt( SOUTH_WEST );
             }
@@ -121,7 +125,7 @@ void PlayScreen::Update( )
         case '3':
 
             if ( valkyria.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
-                                                                     1 ].passable )
+                    1 ].passable )
             {
                 character.WalkAt( SOUTH_EAST );
             }
