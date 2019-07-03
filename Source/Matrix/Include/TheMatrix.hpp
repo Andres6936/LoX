@@ -5,8 +5,9 @@
 
 #include "Include/Common.hpp"
 #include "Include/Item.hpp"
-#include <Entity/Include/Entity.hpp>
+#include "Entity/Include/Entity.hpp"
 #include "Matrix/Enum/ETypeTiles.hpp"
+#include "Matrix/Include/RealWorld.hpp"
 #include "Tile.hpp"
 
 #include <ctime>
@@ -18,6 +19,9 @@
 class TheMatrix
 {
     Tile **map;                        // 2D array of tiles that form a level
+
+    RealWorld realWorld = RealWorld( WIDTH, HEIGHT );
+
     Vector2D stairDown; // coordinates of stairs up and down
     Vector2D stairUp; // coordinates of stairs up and down
     std::vector <Entity> vectorEntities;   // array of creatures on this level

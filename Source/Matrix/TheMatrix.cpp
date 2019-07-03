@@ -93,7 +93,7 @@ void TheMatrix::GenerateLevel( )
         flooded_map[ i ] = new Tile[WIDTH];
     }
 
-    while ( 1 )
+    while ( true )
     {
         // randomly fill starting level
         for ( UInt y = 1; y < HEIGHT - 1; y++ )

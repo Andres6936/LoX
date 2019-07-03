@@ -10,6 +10,7 @@ ADD_EXECUTABLE(LoX
         Source/Screen/MenuScreen.cpp
         Source/Screen/PlayScreen.cpp
         Source/Matrix/TheMatrix.cpp
+        Source/Matrix/RealWorld.cpp
         Source/Matrix/Tile.cpp
         Source/Application.cpp
         Source/Character.cpp
