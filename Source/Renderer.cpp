@@ -46,7 +46,7 @@ Renderer &Renderer::GetInstance( )
     return instance;
 }
 
-void Renderer::DrawMap( Level &level, Character &player )
+void Renderer::DrawMap( TheMatrix &level, Character &player )
 {
     player.FOV( level );
     ClearMap( );
@@ -69,7 +69,7 @@ void Renderer::ClearMap( )
     refresh( );
 }
 
-void Renderer::UpdateMap( Level &level, Character player )
+void Renderer::UpdateMap( TheMatrix &level, Character player )
 {
     /* calculate drawing offsets */
     UInt maxx, maxy;

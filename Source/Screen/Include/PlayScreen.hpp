@@ -6,13 +6,13 @@
 #include "../Interface/ISreen.hpp"
 #include <Include/Renderer.hpp>
 #include "Include/Item.hpp"
-#include "Matrix/Include/Level.hpp"
+#include "Matrix/Include/TheMatrix.hpp"
 #include "Include/Character.hpp"
 
 class PlayScreen : public IScreen
 {
     Character character = Character( "Slash" );
-    Level valkyria = Level( LEVEL_WIDTH, LEVEL_HEIGHT );
+    TheMatrix valkyria = TheMatrix( LEVEL_WIDTH, LEVEL_HEIGHT );
 
     UInt level;                        // current dungeon level
     std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)

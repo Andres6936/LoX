@@ -1,8 +1,8 @@
-#include "Matrix/Include/Level.hpp"
+#include "Matrix/Include/TheMatrix.hpp"
 #include "Include/Character.hpp"
 #include "Include/DieRoll.hpp"
 
-Level::Level( ) : WIDTH( 80 ), HEIGHT( 24 )
+TheMatrix::TheMatrix( ) : WIDTH( 80 ), HEIGHT( 24 )
 {
     fillProbability = 40;
     r1Cutoff = 5;
@@ -21,7 +21,7 @@ Level::Level( ) : WIDTH( 80 ), HEIGHT( 24 )
     this->GenerateLevel( );
 }
 
-Level::Level( const int nWidth, const int nHeight ) : WIDTH( nWidth ), HEIGHT( nHeight )
+TheMatrix::TheMatrix( const int nWidth, const int nHeight ) : WIDTH( nWidth ), HEIGHT( nHeight )
 {
     fillProbability = 40;
     r1Cutoff = 5;
@@ -39,7 +39,7 @@ Level::Level( const int nWidth, const int nHeight ) : WIDTH( nWidth ), HEIGHT( n
     this->GenerateLevel( );
 }
 
-Level::~Level( )
+TheMatrix::~TheMatrix( )
 {
     for ( UInt i = 0; i < HEIGHT; i++ )
     {
@@ -49,7 +49,7 @@ Level::~Level( )
     delete[] map;
 }
 
-int Level::randpick( )
+int TheMatrix::randpick( )
 {
     if ( rand( ) % 100 < fillProbability )
     { return MAP_WALL; }
@@ -76,7 +76,7 @@ void floodmap( Tile **&map, Tile **&flag, UInt x, UInt y )
     floodmap( map, flag, x, y + 1 );
 }
 
-void Level::GenerateLevel( )
+void TheMatrix::GenerateLevel( )
 {
 
     // allocate memory for levels
@@ -256,24 +256,24 @@ void Level::GenerateLevel( )
     }
 }
 
-bool Level::HasItem( Vector2D coordinate ) const
+bool TheMatrix::HasItem( Vector2D coordinate ) const
 {
     return !map[ coordinate.y ][ coordinate.x ].items.empty( );
 }
 
-item_ptr Level::SeeItem( Vector2D coordinate ) const
+item_ptr TheMatrix::SeeItem( Vector2D coordinate ) const
 {
     return map[ coordinate.y ][ coordinate.x ].items.back( );
 }
 
-item_ptr Level::GetItem( Vector2D coordinate )
+item_ptr TheMatrix::GetItem( Vector2D coordinate )
 {
     item_ptr tmp = map[ coordinate.y ][ coordinate.x ].items.back( );
     map[ coordinate.y ][ coordinate.x ].items.pop_back( );
     return tmp;
 }
 
-void Level::PutItem( Vector2D pos, item_ptr item )
+void TheMatrix::PutItem( Vector2D pos, item_ptr item )
 {
     map[ pos.y ][ pos.x ].items.push_back( item );
 }

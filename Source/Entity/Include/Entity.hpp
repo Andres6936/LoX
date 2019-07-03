@@ -7,7 +7,7 @@
 #include "Include/Common.hpp"
 #include "Include/EDirections.hpp"
 
-class Level;
+class TheMatrix;
 
 class Entity
 {
@@ -33,8 +33,9 @@ class Entity
     UInt charisma;
 
     /* this function fills vision with level coordinates visible to this creature */
-    void shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
-                     UInt xy, UInt yx, UInt yy );
+    void
+    shadowcast( TheMatrix &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
+                UInt xy, UInt yx, UInt yy );
 
 public:
 
@@ -53,7 +54,7 @@ public:
     { coordinate = pos; }
 
     /* this method calculates the Field-Of-View for this creature */
-    void FOV( Level &level );
+    void FOV( TheMatrix &level );
 
     // Getter Methods
 

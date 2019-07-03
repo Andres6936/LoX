@@ -1,5 +1,5 @@
 #include "Entity/Include/Entity.hpp"
-#include "Matrix/Include/Level.hpp"
+#include "Matrix/Include/TheMatrix.hpp"
 
 Entity::Entity( )
 {
@@ -117,8 +117,9 @@ void Entity::SetType( EEntityTypes nType )
 }
 
 void
-Entity::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope, UInt xx,
-                      UInt xy, UInt yx, UInt yy )
+Entity::shadowcast( TheMatrix &level, UInt x, UInt y, UInt radius, UInt row, float start_slope, float end_slope,
+                    UInt xx,
+                    UInt xy, UInt yx, UInt yy )
 {
     if ( start_slope < end_slope )
     { return; }
@@ -188,7 +189,7 @@ const int octantMatrix[4][8] = {
         { 1, 0, 0,  1,  -1, 0,  0,  -1 }
 };
 
-void Entity::FOV( Level &level )
+void Entity::FOV( TheMatrix &level )
 {
     vision.clear( );
     for ( UInt i = 0; i < 8; i++ )

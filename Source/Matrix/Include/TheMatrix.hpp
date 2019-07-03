@@ -23,7 +23,7 @@ const Tile tiles[] = {
         {{ }, MAP_STAIR_DOWN, true,  false }
 };
 
-class Level
+class TheMatrix
 {
     Tile **map;                        // 2D array of tiles that form a level
     Vector2D stairDown; // coordinates of stairs up and down
@@ -41,14 +41,29 @@ class Level
 
 public:
 
-    const UInt WIDTH;                            // width of level
-    const UInt HEIGHT;                            // height of level
+    // Constant Fields
 
-    Level( );
+    /**
+     * Width of level.
+     */
+    const unsigned int WIDTH;
 
-    Level( int nWidth, int nHeight );
+    /**
+     * Height of level.
+     */
+    const unsigned int HEIGHT;
 
-    ~Level( );
+    // Constructs
+
+    TheMatrix( );
+
+    TheMatrix( int nWidth, int nHeight );
+
+    // Destructs
+
+    ~TheMatrix( );
+
+    // Methods
 
     /**
      * Generate a new map for this level.

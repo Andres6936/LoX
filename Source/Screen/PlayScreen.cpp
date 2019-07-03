@@ -138,7 +138,7 @@ void PlayScreen::Update( )
 //            {
 //                if ( dungeon.size( ) == ++level )
 //                {
-//                    dungeon.push_back( Level ( LEVEL_WIDTH, LEVEL_HEIGHT ) );
+//                    dungeon.push_back( TheMatrix ( LEVEL_WIDTH, LEVEL_HEIGHT ) );
 //                }
 //                character.Pos( valkyria.StairUp( ));
 //            }
@@ -167,7 +167,7 @@ void PlayScreen::Update( )
 
             /* DEBUG KEYS */
 //        case 'r':
-//            for ( Level &level: dungeon )
+//            for ( TheMatrix &level: dungeon )
 //            { level.GenerateLevel( ); }
 //            break;
 

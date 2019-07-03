@@ -4,7 +4,7 @@
 #pragma once
 
 #include "Common.hpp"
-#include "Matrix/Include/Level.hpp"
+#include "Matrix/Include/TheMatrix.hpp"
 #include "Character.hpp"
 
 #include <curses.h>
@@ -32,7 +32,7 @@ class Renderer
     void ClearMap( );
 
     /* this method updates only visible parts of the map for a level */
-    void UpdateMap( Level &level, Character player );
+    void UpdateMap( TheMatrix &level, Character player );
 
     /* this method draws a tile at a specified location */
     void DrawTile( Tile &tile, int x, int y );
@@ -49,7 +49,7 @@ public:
     static Renderer &GetInstance( );
 
     /* this method handles the draw process for a level */
-    void DrawMap( Level &level, Character &player );
+    void DrawMap( TheMatrix &level, Character &player );
 
     /* this method gets and returns a key press from the user */
     int GetKey( );
