@@ -74,11 +74,11 @@ void Renderer::UpdateMap( Level &level, Character player )
     /* calculate drawing offsets */
     UInt maxx, maxy;
     getmaxyx( win_map, maxy, maxx );
-    int xoffset = player.X( ) - ( maxx / 2 );
-    int yoffset = player.Y( ) - ( maxy / 2 );
+    int xoffset = player.GetCoordinateX( ) - ( maxx / 2 );
+    int yoffset = player.GetCoordinateY( ) - ( maxy / 2 );
 
     /* draw all tiles visible to the player */
-    for ( Vector2D &pos: player.Vis( ))
+    for ( Vector2D &pos: player.GetVision( ))
     { DrawTile( level.Map( )[ pos.y ][ pos.x ], pos.x - xoffset, pos.y - yoffset ); }
 }
 
@@ -104,22 +104,23 @@ void Renderer::DrawCreature( Entity *creature )
     /* calculate drawing offsets */
     UInt maxx, maxy;
     getmaxyx( win_map, maxy, maxx );
-    int xoffset = creature->X( ) - ( maxx / 2 );
-    int yoffset = creature->Y( ) - ( maxy / 2 );
+    int xoffset = creature->GetCoordinateX( ) - ( maxx / 2 );
+    int yoffset = creature->GetCoordinateY( ) - ( maxy / 2 );
 
     /* if the object passed is a character, cast to character and display symbol based on race */
     if ( creature->GetType( ) == CREATURE_CHARACTER )
     {
         symbol_map _char = character_symbols[ dynamic_cast<Character *>(creature)->GetRace( ) ];
         wattron( win_map, COLOR_PAIR( _char.col ));
-        mvwaddch( win_map, creature->Y( ) - yoffset, creature->X( ) - xoffset, _char.sym );
+        mvwaddch( win_map, creature->GetCoordinateY( ) - yoffset, creature->GetCoordinateX( ) - xoffset, _char.sym );
         wattroff( win_map, COLOR_PAIR( _char.col ));
     }
     else
     {
         symbol_map _creature = creature_symbols[ creature->GetType( ) ];
         wattron( win_map, COLOR_PAIR( _creature.col ));
-        mvwaddch( win_map, creature->Y( ) - yoffset, creature->X( ) - xoffset, _creature.sym );
+        mvwaddch( win_map, creature->GetCoordinateY( ) - yoffset, creature->GetCoordinateX( ) - xoffset,
+                  _creature.sym );
         wattroff( win_map, COLOR_PAIR( _creature.col ));
     }
 }
@@ -239,29 +240,29 @@ void Renderer::DrawStats( Character player, UChar level )
 
     /* display hit points */
     str = "HP:";
-    str += std::to_string( player.Hp( ));
+    str += std::to_string( player.GetHp( ));
     str += "/";
-    str += std::to_string( player.MaxHp( ));
+    str += std::to_string( player.GetMaxHp( ));
     mvwaddstr( win_stats, 4, 1, str.c_str( ));
 
     /* display mana points */
     str = "MP:";
-    str += std::to_string( player.Mp( ));
+    str += std::to_string( player.GetMp( ));
     str += "/";
-    str += std::to_string( player.MaxMp( ));
+    str += std::to_string( player.GetMaxMp( ));
     mvwaddstr( win_stats, 5, 1, str.c_str( ));
 
     /* display experience */
     str = "XP:";
-    str += std::to_string( player.Xp( ));
+    str += std::to_string( player.GetExperience( ));
     mvwaddstr( win_stats, 6, 1, str.c_str( ));
 
     /* DEBUG INFO */
     /* display position */
     str = "X:";
-    str += std::to_string( player.X( ));
+    str += std::to_string( player.GetCoordinateX( ));
     str += " Y:";
-    str += std::to_string( player.Y( ));
+    str += std::to_string( player.GetCoordinateY( ));
     str += " Z:";
     str += std::to_string( level + 1 );
     mvwaddstr( win_stats, LINES - 4, 1, str.c_str( ));

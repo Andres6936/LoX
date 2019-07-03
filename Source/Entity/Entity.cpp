@@ -21,9 +21,94 @@ Entity::Entity( )
 
 }
 
+void Entity::WalkAt( EDirections direction )
+{
+    if ( direction == NORTH )
+    {
+        coordinate.y += -1;
+    }
+    else if ( direction == WEST )
+    {
+        coordinate.x += -1;
+    }
+    else if ( direction == NORTH_WEST )
+    {
+        coordinate.x += -1;
+        coordinate.y += -1;
+    }
+    else if ( direction == SOUTH_WEST )
+    {
+        coordinate.x += -1;
+        coordinate.y += 1;
+    }
+    else if ( direction == EAST )
+    {
+        coordinate.x += 1;
+    }
+    else if ( direction == NORTH_EAST )
+    {
+        coordinate.x += 1;
+        coordinate.y += -1;
+    }
+    else if ( direction == SOUTH_EAST )
+    {
+        coordinate.x += 1;
+        coordinate.y += 1;
+    }
+    else if ( direction == SOUTH )
+    {
+        coordinate.y += 1;
+    }
+}
+
 EEntityTypes Entity::GetType( ) const
 {
     return type;
+}
+
+UInt Entity::GetHp( ) const
+{
+    return hp;
+}
+
+UInt Entity::GetMaxHp( ) const
+{
+    return maxHp;
+}
+
+UInt Entity::GetMp( ) const
+{
+    return mp;
+}
+
+UInt Entity::GetMaxMp( ) const
+{
+    return maxMp;
+}
+
+UInt Entity::GetExperience( ) const
+{
+    return experience;
+}
+
+Vector2D Entity::GetCoordinate( ) const
+{
+    return coordinate;
+}
+
+UInt Entity::GetCoordinateX( ) const
+{
+    return coordinate.x;
+}
+
+UInt Entity::GetCoordinateY( ) const
+{
+    return coordinate.y;
+}
+
+std::vector <Vector2D> Entity::GetVision( ) const
+{
+    return vision;
 }
 
 void Entity::SetType( EEntityTypes nType )

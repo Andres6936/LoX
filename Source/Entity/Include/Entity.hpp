@@ -5,6 +5,7 @@
 
 #include "Entity/Enum/EEntityTypes.hpp"
 #include "Include/Common.hpp"
+#include "Include/EDirections.hpp"
 
 class Level;
 
@@ -37,16 +38,15 @@ class Entity
 
 public:
 
+    // Constructs
+
     Entity( );
 
-    virtual ~Entity( ) = default;
+    ~Entity( ) = default;
 
-    /* this method adds a vector (in the form of two ints) to coordinate */
-    void AddPos( int x, int y )
-    {
-        coordinate.x += x;
-        coordinate.y += y;
-    }
+    // Methods
+
+    void WalkAt( EDirections direction );
 
     /* this method explicitally sets coordinate */
     void Pos( Vector2D pos )
@@ -59,66 +59,28 @@ public:
 
     EEntityTypes GetType( ) const;
 
-    UInt Hp( ) const
-    { return hp; }
+    UInt GetHp( ) const;
 
-    UInt MaxHp( ) const
-    { return maxHp; }
+    UInt GetMaxHp( ) const;
 
-    UInt Mp( ) const
-    { return mp; }
+    UInt GetMp( ) const;
 
-    UInt MaxMp( ) const
-    { return maxMp; }
+    UInt GetMaxMp( ) const;
 
-    UInt Xp( ) const
-    { return experience; }
+    UInt GetExperience( ) const;
 
-    Vector2D Pos( ) const
-    { return coordinate; }
+    Vector2D GetCoordinate( ) const;
 
-    UInt X( ) const
-    { return coordinate.x; }
+    UInt GetCoordinateX( ) const;
 
-    UInt Y( ) const
-    { return coordinate.y; }
+    UInt GetCoordinateY( ) const;
 
-    std::vector <Vector2D> Vis( ) const
-    { return vision; }
-
-    UInt Str( ) const
-    { return strength; }
-
-    UInt Dex( ) const
-    { return dexterity; }
-
-    UInt Spd( ) const
-    { return speed; }
-
-    UInt End( ) const
-    { return endurance; }
-
-    UInt Int( ) const
-    { return intelligence; }
-
-    UInt Wis( ) const
-    { return wisdom; }
-
-    UInt Cha( ) const
-    { return charisma; }
+    std::vector <Vector2D> GetVision( ) const;
 
     // Setter Methods
 
     void SetType( EEntityTypes nType );
 
-    /* VIRTUAL METHODS */
-
-    /*
-     * This method is used in the Character class to determine race.
-     * It has no use here, so simply returns 255.
-     */
-    virtual UChar Race( ) const
-    { return 255; }
 };
 
 #endif
