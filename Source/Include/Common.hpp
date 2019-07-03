@@ -3,7 +3,7 @@
 
 #pragma once
 
-/* version string */
+// Version String
 #define _LoX_VERSION "0.1.0.4"
 
 #include <cstdio>
@@ -16,21 +16,10 @@
 #include <vector>
 #include <list>
 
+#include "Math/Include/Vector2D.hpp"
+
 typedef unsigned char UChar;
 
 typedef unsigned int UInt;
-
-/* this structure is used to describe 2D positions and movements in the game */
-struct Vector2D
-{
-    UInt x;
-    UInt y;
-
-    /* overload for '==' operator to work correctly */
-    bool operator==( const Vector2D &vect )
-    {
-        return x == vect.x && y == vect.y;
-    }
-};
 
 #endif

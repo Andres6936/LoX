@@ -9,7 +9,7 @@ Entity::Entity( )
     mp = 8;
     maxMp = 8;
     experience = 0;
-    coordinate = { 0, 0 };
+    coordinate = Vector2D( );
 
     strength = 8;
     dexterity = 8;
@@ -151,7 +151,7 @@ Entity::shadowcast( Level &level, UInt x, UInt y, UInt radius, UInt row, float s
             UInt radius2 = radius * radius;
             if (( UInt )( dx * dx + dy * dy ) < radius2 )
             {
-                Vector2D tmp = { ax, ay };
+                Vector2D tmp = Vector2D( ax, ay );
                 vision.push_back( tmp );
             }
 

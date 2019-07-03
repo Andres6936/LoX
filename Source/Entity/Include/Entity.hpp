@@ -21,7 +21,7 @@ class Entity
     UInt mp;                       // mana points
     UInt maxMp;                   // maximum mana points
     UInt experience;                       // experience points
-    Vector2D coordinate{ };                  // coordinates of this creature on map
+    Vector2D coordinate;                  // coordinates of this creature on map
     std::vector <Vector2D> vision;     // array of coordinates that this creature can see
 
     UInt strength;
@@ -42,7 +42,7 @@ public:
 
     Entity( );
 
-    ~Entity( ) = default;
+    virtual ~Entity( ) = default;
 
     // Methods
 
