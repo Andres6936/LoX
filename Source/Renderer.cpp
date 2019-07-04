@@ -193,7 +193,11 @@ void Renderer::DrawStats( Character player, UChar level )
     wattron( win_stats, COLOR_PAIR( COL_YELLOW ));
     mvwaddstr( win_stats, 1, 1, str.c_str( ));
 
+    terminal_color( color_from_name( "yellow" ));
     terminal_print( 60, 1, str.c_str( ));
+
+    // Reset the foreground color.
+    terminal_color( color_from_name( "white" ));
 
     /* display race */
     switch ( player.GetRace( ))
@@ -274,7 +278,11 @@ void Renderer::DrawStats( Character player, UChar level )
     mvwaddstr( win_stats, 2, 1, str.c_str( ));
     wattroff( win_stats, COLOR_PAIR( COL_YELLOW ));
 
+    terminal_color( color_from_name( "yellow" ));
     terminal_print( 60, 2, str.c_str( ));
+
+    // Reset the foreground color.
+    terminal_color( color_from_name( "white" ));
 
     /* display hit points */
     str = "HP:";
