@@ -178,6 +178,8 @@ void Renderer::Message( std::string msg )
     mvwprintw( win_msg, 1, 0, "%s", msg.c_str( ));
     wattroff( win_msg, COLOR_PAIR( COL_WHITE ));
     wrefresh( win_msg );
+
+    terminal_print( 0, 24, msg.c_str( ));
 }
 
 void Renderer::DrawStats( Character player, UChar level )
