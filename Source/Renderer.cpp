@@ -106,7 +106,23 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
         mvwaddch( win_map, y, x, item.sym );
         wattron( win_map, COLOR_PAIR( item.col ));
 
-        terminal_put( x, y, item.col );
+        if ( item.type == ITEM_ARMOUR )
+        {
+            terminal_color( color_from_name( "red" ));
+        }
+        else if ( item.type == ITEM_WEAPON )
+        {
+            terminal_color( color_from_name( "cyan" ));
+        }
+        else if ( item.type == ITEM_RANGED )
+        {
+            terminal_color( color_from_name( "green" ));
+        }
+
+        terminal_put( x, y, item.sym );
+
+        // Reset the foreground color.
+        terminal_color( color_from_name( "white" ));
     }
 }
 
