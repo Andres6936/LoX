@@ -23,6 +23,5 @@ ADD_EXECUTABLE(LoX
         Source/Renderer.cpp
         )
 
-TARGET_LINK_LIBRARIES(LoX ncurses)
 # Load and link the library BearLibTerminal
 TARGET_LINK_LIBRARIES(LoX BearLibTerminal)

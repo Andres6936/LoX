@@ -17,7 +17,6 @@ PlayScreen &PlayScreen::GetInstance( )
 
 void PlayScreen::Draw( )
 {
-    clear( );
     terminal_clear( );
 
     /* LEVEL DRAWING */
@@ -33,9 +32,6 @@ void PlayScreen::Draw( )
         renderer.Message( msg );
     }
 
-    /* always move cursor back to player when finished drawing */
-    move( character.GetCoordinateY( ), character.GetCoordinateX( ));
-
     terminal_refresh( );
 }
 
@@ -44,15 +40,16 @@ void PlayScreen::Update( )
     switch ( renderer.GetKey( ))
     {
         /* QUIT GAME */
-        case 'q':
+        case TK_CLOSE:
+        case TK_Q:
 
             Application::GetInstance( ).OnExit( );
 
             break;
 
             /* MOVEMENT KEYS */
-        case 'k':
-        case '8':
+        case TK_UP:
+        case TK_KP_8:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
             {
@@ -61,8 +58,8 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'j':
-        case '2':
+        case TK_DOWN:
+        case TK_KP_2:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
             {
@@ -71,8 +68,8 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'h':
-        case '4':
+        case TK_LEFT:
+        case TK_KP_4:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
             {
@@ -81,8 +78,8 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'l':
-        case '6':
+        case TK_RIGHT:
+        case TK_KP_6:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
             {
@@ -91,8 +88,7 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'u':
-        case '7':
+        case TK_KP_7:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
                                                                       1 ].passable )
@@ -102,8 +98,7 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'i':
-        case '9':
+        case TK_KP_9:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
                                                                       1 ].passable )
@@ -113,8 +108,7 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'n':
-        case '1':
+        case TK_KP_1:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
                                                                       1 ].passable )
@@ -124,8 +118,7 @@ void PlayScreen::Update( )
 
             break;
 
-        case 'm':
-        case '3':
+        case TK_KP_3:
 
             if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
                                                                       1 ].passable )
@@ -159,7 +152,7 @@ void PlayScreen::Update( )
 //            break;
 
             /* ITEM MANAGEMENT */
-        case ',':
+        case TK_COMMA:
             if ( theMatrix.HasItem( character.GetCoordinate( )))
             {
                 inventory.push_back( theMatrix.GetItem( character.GetCoordinate( )));

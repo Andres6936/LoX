@@ -11,18 +11,17 @@ MenuScreen &MenuScreen::GetInstance( )
 void MenuScreen::Draw( )
 {
     /* clear screen first */
-    clear( );
     terminal_clear( );
 
     /* game title */
     std::string str = "Lair of Xyrallion";
-    UChar x = ( COLS / 2 ) - ( floor( str.length( ) / 2 ));
-    UChar y = ( LINES / 2 ) - (( MENU_EXIT_GAME + 3 ) / 2 );
+    UChar x = ( 80 / 2 ) - ( floor( str.length( ) / 2 ));
+    UChar y = ( 25 / 2 ) - (( MENU_EXIT_GAME + 3 ) / 2 );
     renderer.Write( str, x, ++y );
 
     /* new game option */
     str = "Start Game";
-    x = ( COLS / 2 ) - ( str.length( ) / 2 );
+    x = ( 80 / 2 ) - ( str.length( ) / 2 );
     y += 2;
 
     if ( itemMenu == MENU_PLAY_GAME )
@@ -36,7 +35,7 @@ void MenuScreen::Draw( )
 
     /* exit game option */
     str = "Quit";
-    x = ( COLS / 2 ) - ( str.length( ) / 2 );
+    x = ( 80 / 2 ) - ( str.length( ) / 2 );
     if ( itemMenu == MENU_EXIT_GAME )
     { renderer.Write( str, x, ++y, COL_RED, "red" ); }
     else
@@ -45,10 +44,9 @@ void MenuScreen::Draw( )
     /* game version */
     str = "Development Version ";
     str += _LoX_VERSION;
-    renderer.Write( str, 0, LINES - 1 );
+    renderer.Write( str, 0, 25 - 1 );
 
     /* refresh window */
-    refresh( );
     terminal_refresh( );
 }
 
@@ -58,7 +56,7 @@ void MenuScreen::Update( )
     {
         // ---- Menu Traversal ----
 
-        case KEY_UP:
+        case TK_UP:
 
             if ( itemMenu == MENU_PLAY_GAME )
             {
@@ -71,7 +69,7 @@ void MenuScreen::Update( )
 
             break;
 
-        case KEY_DOWN:
+        case TK_DOWN:
 
             if ( itemMenu == MENU_PLAY_GAME )
             {
@@ -80,8 +78,7 @@ void MenuScreen::Update( )
 
             break;
 
-        case KEY_ENTER:
-        case '\n':
+        case TK_ENTER:
 
             if ( itemMenu == MENU_PLAY_GAME )
             {

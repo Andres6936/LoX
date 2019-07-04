@@ -8,8 +8,6 @@
 #include "Character.hpp"
 #include "Matrix/Include/TheMatrix.hpp"
 
-#include <curses.h>
-
 /* enumeration of colour pairs we register with curses */
 enum DrawColours
 {
@@ -24,11 +22,6 @@ enum DrawColours
 
 class Renderer
 {
-    /* game windows */
-    WINDOW *win_map;
-    WINDOW *win_msg;
-    WINDOW *win_stats;
-
     /* this method clears the map for a level */
     void ClearMap( );
 
