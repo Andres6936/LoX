@@ -3,9 +3,10 @@
 
 #pragma once
 
+#include "BearLibTerminal.h"
 #include "Common.hpp"
-#include "Matrix/Include/TheMatrix.hpp"
 #include "Character.hpp"
+#include "Matrix/Include/TheMatrix.hpp"
 
 #include <curses.h>
 
@@ -55,7 +56,7 @@ public:
     int GetKey( );
 
     /* this method writes a string at a specified location */
-    void Write( std::string msg, int x, int y, int colour = COL_WHITE );
+    void Write( std::string msg, int x, int y, int colour = COL_WHITE, std::string nColor = "white" );
 
     /* this method prints a message in the message area */
     void Message( std::string msg );

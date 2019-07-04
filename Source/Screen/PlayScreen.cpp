@@ -18,6 +18,7 @@ PlayScreen &PlayScreen::GetInstance( )
 void PlayScreen::Draw( )
 {
     clear( );
+    terminal_clear( );
 
     /* LEVEL DRAWING */
     renderer.DrawMap( theMatrix, character );
@@ -34,6 +35,8 @@ void PlayScreen::Draw( )
 
     /* always move cursor back to player when finished drawing */
     move( character.GetCoordinateY( ), character.GetCoordinateX( ));
+
+    terminal_refresh( );
 }
 
 void PlayScreen::Update( )

@@ -29,6 +29,10 @@ Renderer::Renderer( )
     win_stats = newwin( LINES - 2, COLS / 4, 0, COLS - ( COLS / 4 ));
     scrollok( win_msg, TRUE );
     refresh( );
+
+    terminal_open( );
+    terminal_set( "terminal: encoding=437" );
+    terminal_set( "window: size=80x25, cellsize=auto, title=LoX" );
 }
 
 Renderer::~Renderer( )
@@ -38,6 +42,8 @@ Renderer::~Renderer( )
     delwin( win_msg );
     delwin( win_stats );
     endwin( );
+
+    terminal_close( );
 }
 
 Renderer &Renderer::GetInstance( )
@@ -115,6 +121,8 @@ void Renderer::DrawCreature( Entity *creature )
         wattron( win_map, COLOR_PAIR( _char.col ));
         mvwaddch( win_map, creature->GetCoordinateY( ) - yoffset, creature->GetCoordinateX( ) - xoffset, _char.sym );
         wattroff( win_map, COLOR_PAIR( _char.col ));
+
+        terminal_put( creature->GetCoordinateX( ), creature->GetCoordinateY( ), '@' );
     }
     else
     {
@@ -131,11 +139,14 @@ int Renderer::GetKey( )
     return getch( );
 }
 
-void Renderer::Write( std::string msg, int x, int y, int colour )
+void Renderer::Write( std::string msg, int x, int y, int colour, std::string nColor )
 {
     attron( COLOR_PAIR( colour ));
     mvaddstr( y, x, msg.c_str( ));
     attroff( COLOR_PAIR( colour ));
+
+    terminal_color( color_from_name( nColor.c_str( )));
+    terminal_print( x + 1, y + 1, msg.c_str( ));
 }
 
 void Renderer::Message( std::string msg )

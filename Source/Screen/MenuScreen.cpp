@@ -12,6 +12,7 @@ void MenuScreen::Draw( )
 {
     /* clear screen first */
     clear( );
+    terminal_clear( );
 
     /* game title */
     std::string str = "Lair of Xyrallion";
@@ -23,16 +24,21 @@ void MenuScreen::Draw( )
     str = "Start Game";
     x = ( COLS / 2 ) - ( str.length( ) / 2 );
     y += 2;
+
     if ( itemMenu == MENU_PLAY_GAME )
-    { renderer.Write( str, x, y, COL_RED ); }
+    {
+        renderer.Write( str, x, y, COL_RED, "red" );
+    }
     else
-    { renderer.Write( str, x, y ); }
+    {
+        renderer.Write( str, x, y );
+    }
 
     /* exit game option */
     str = "Quit";
     x = ( COLS / 2 ) - ( str.length( ) / 2 );
     if ( itemMenu == MENU_EXIT_GAME )
-    { renderer.Write( str, x, ++y, COL_RED ); }
+    { renderer.Write( str, x, ++y, COL_RED, "red" ); }
     else
     { renderer.Write( str, x, ++y ); }
 
@@ -43,6 +49,7 @@ void MenuScreen::Draw( )
 
     /* refresh window */
     refresh( );
+    terminal_refresh( );
 }
 
 void MenuScreen::Update( )
