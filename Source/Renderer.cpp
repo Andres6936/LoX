@@ -96,6 +96,8 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     mvwaddch( win_map, y, x, _tile.sym );
     wattroff( win_map, COLOR_PAIR( _tile.col ));
 
+    terminal_put( x, y, _tile.sym );
+
     /* if there are items here, draw the top item of the stack */
     if ( !tile.items.empty( ))
     {
@@ -103,6 +105,8 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
         wattron( win_map, COLOR_PAIR( item.col ));
         mvwaddch( win_map, y, x, item.sym );
         wattron( win_map, COLOR_PAIR( item.col ));
+
+        terminal_put( x, y, item.col );
     }
 }
 
@@ -122,7 +126,7 @@ void Renderer::DrawCreature( Entity *creature )
         mvwaddch( win_map, creature->GetCoordinateY( ) - yoffset, creature->GetCoordinateX( ) - xoffset, _char.sym );
         wattroff( win_map, COLOR_PAIR( _char.col ));
 
-        terminal_put( creature->GetCoordinateX( ), creature->GetCoordinateY( ), '@' );
+        terminal_put( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _char.sym );
     }
     else
     {
@@ -131,6 +135,8 @@ void Renderer::DrawCreature( Entity *creature )
         mvwaddch( win_map, creature->GetCoordinateY( ) - yoffset, creature->GetCoordinateX( ) - xoffset,
                   _creature.sym );
         wattroff( win_map, COLOR_PAIR( _creature.col ));
+
+        terminal_put( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _creature.sym );
     }
 }
 
