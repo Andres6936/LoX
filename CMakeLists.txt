@@ -3,6 +3,9 @@ PROJECT(LoX)
 
 SET(CMAKE_CXX_STANDARD 14)
 
+# Find the librarys here
+LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/Library)
+
 INCLUDE_DIRECTORIES(Source)
 
 ADD_EXECUTABLE(LoX
@@ -21,3 +24,5 @@ ADD_EXECUTABLE(LoX
         )
 
 TARGET_LINK_LIBRARIES(LoX ncurses)
+# Load and link the library BearLibTerminal
+TARGET_LINK_LIBRARIES(LoX BearLibTerminal)
