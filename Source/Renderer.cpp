@@ -177,6 +177,8 @@ void Renderer::DrawStats( Character player, UChar level )
     wattron( win_stats, COLOR_PAIR( COL_YELLOW ));
     mvwaddstr( win_stats, 1, 1, str.c_str( ));
 
+    terminal_print( 60, 1, str.c_str( ));
+
     /* display race */
     switch ( player.GetRace( ))
     {
@@ -256,12 +258,16 @@ void Renderer::DrawStats( Character player, UChar level )
     mvwaddstr( win_stats, 2, 1, str.c_str( ));
     wattroff( win_stats, COLOR_PAIR( COL_YELLOW ));
 
+    terminal_print( 60, 2, str.c_str( ));
+
     /* display hit points */
     str = "HP:";
     str += std::to_string( player.GetHp( ));
     str += "/";
     str += std::to_string( player.GetMaxHp( ));
     mvwaddstr( win_stats, 4, 1, str.c_str( ));
+
+    terminal_print( 60, 4, str.c_str( ));
 
     /* display mana points */
     str = "MP:";
@@ -270,10 +276,14 @@ void Renderer::DrawStats( Character player, UChar level )
     str += std::to_string( player.GetMaxMp( ));
     mvwaddstr( win_stats, 5, 1, str.c_str( ));
 
+    terminal_print( 60, 5, str.c_str( ));
+
     /* display experience */
     str = "XP:";
     str += std::to_string( player.GetExperience( ));
     mvwaddstr( win_stats, 6, 1, str.c_str( ));
+
+    terminal_print( 60, 6, str.c_str( ));
 
     /* DEBUG INFO */
     /* display position */
@@ -284,6 +294,8 @@ void Renderer::DrawStats( Character player, UChar level )
     str += " Z:";
     str += std::to_string( level + 1 );
     mvwaddstr( win_stats, LINES - 4, 1, str.c_str( ));
+
+    terminal_print( 60, 20, str.c_str( ));
 
     /* draw window */
     wrefresh( win_stats );
