@@ -51,7 +51,7 @@ void PlayScreen::Update( )
         case TK_UP:
         case TK_KP_8:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ), character.GetCoordinateY( ) - 1 ).passable )
             {
                 character.WalkAt( NORTH );
             }
@@ -61,7 +61,7 @@ void PlayScreen::Update( )
         case TK_DOWN:
         case TK_KP_2:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ), character.GetCoordinateY( ) + 1 ).passable )
             {
                 character.WalkAt( SOUTH );
             }
@@ -71,7 +71,7 @@ void PlayScreen::Update( )
         case TK_LEFT:
         case TK_KP_4:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) - 1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) - 1, character.GetCoordinateY( )).passable )
             {
                 character.WalkAt( WEST );
             }
@@ -81,7 +81,7 @@ void PlayScreen::Update( )
         case TK_RIGHT:
         case TK_KP_6:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) ][ character.GetCoordinateX( ) + 1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) + 1, character.GetCoordinateY( )).passable )
             {
                 character.WalkAt( EAST );
             }
@@ -90,8 +90,7 @@ void PlayScreen::Update( )
 
         case TK_KP_7:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) -
-                                                                      1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) - 1, character.GetCoordinateY( ) - 1 ).passable )
             {
                 character.WalkAt( NORTH_WEST );
             }
@@ -100,8 +99,7 @@ void PlayScreen::Update( )
 
         case TK_KP_9:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) - 1 ][ character.GetCoordinateX( ) +
-                                                                      1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) + 1, character.GetCoordinateY( ) - 1 ).passable )
             {
                 character.WalkAt( NORTH_EAST );
             }
@@ -110,8 +108,7 @@ void PlayScreen::Update( )
 
         case TK_KP_1:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) -
-                                                                      1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) - 1, character.GetCoordinateY( ) + 1 ).passable )
             {
                 character.WalkAt( SOUTH_WEST );
             }
@@ -120,8 +117,7 @@ void PlayScreen::Update( )
 
         case TK_KP_3:
 
-            if ( theMatrix.Map( )[ character.GetCoordinateY( ) + 1 ][ character.GetCoordinateX( ) +
-                                                                      1 ].passable )
+            if ( theMatrix.GetTileAtIndex( character.GetCoordinateX( ) + 1, character.GetCoordinateY( ) + 1 ).passable )
             {
                 character.WalkAt( SOUTH_EAST );
             }

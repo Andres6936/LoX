@@ -158,7 +158,7 @@ Entity::shadowcast( TheMatrix &level, UInt x, UInt y, UInt radius, UInt row, flo
 
             if ( blocked )
             {
-                if ( level.Map( )[ ay ][ ax ].opaque )
+                if ( level.GetTileAtIndex( ax, ay ).opaque )
                 {
                     next_start_slope = r_slope;
                     continue;
@@ -169,7 +169,7 @@ Entity::shadowcast( TheMatrix &level, UInt x, UInt y, UInt radius, UInt row, flo
                     start_slope = next_start_slope;
                 }
             }
-            else if ( level.Map( )[ ay ][ ax ].opaque )
+            else if ( level.GetTileAtIndex( ax, ay ).opaque )
             {
                 blocked = true;
                 next_start_slope = r_slope;

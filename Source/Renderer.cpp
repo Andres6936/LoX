@@ -41,7 +41,7 @@ void Renderer::UpdateMap( TheMatrix &level, Character player )
 
     /* draw all tiles visible to the player */
     for ( Vector2D &pos: player.GetVision( ))
-    { DrawTile( level.Map( )[ pos.y ][ pos.x ], pos.x - xoffset, pos.y - yoffset ); }
+    { DrawTile( level.GetTileAtIndex( pos.x, pos.y ), pos.x - xoffset, pos.y - yoffset ); }
 }
 
 void Renderer::DrawTile( Tile &tile, int x, int y )

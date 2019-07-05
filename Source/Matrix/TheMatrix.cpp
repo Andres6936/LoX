@@ -2,12 +2,14 @@
 #include "Include/Character.hpp"
 #include "Include/DieRoll.hpp"
 
-TheMatrix::TheMatrix( ) : WIDTH( 80 ), HEIGHT( 24 )
+TheMatrix::TheMatrix( ) : WIDTH( 80 ), HEIGHT( 25 )
 {
     fillProbability = 40;
     r1Cutoff = 5;
     r2Cutoff = 0;
     passes = 12;
+
+    realWorld = new RealWorld( WIDTH, HEIGHT );
 
     // Allocate memory for map
     map = new Tile *[HEIGHT];
@@ -28,6 +30,8 @@ TheMatrix::TheMatrix( const int nWidth, const int nHeight ) : WIDTH( nWidth ), H
     r2Cutoff = 0;
     passes = 12;
 
+    realWorld = new RealWorld( WIDTH, HEIGHT );
+
     // Allocate memory for map
     map = new Tile *[HEIGHT];
 
@@ -47,6 +51,8 @@ TheMatrix::~TheMatrix( )
     }
 
     delete[] map;
+
+    delete realWorld;
 }
 
 Tile TheMatrix::GetRandomPickTile( )
@@ -92,6 +98,12 @@ void TheMatrix::GenerateLevel( )
         new_map[ i ] = new Tile[WIDTH];
         flooded_map[ i ] = new Tile[WIDTH];
     }
+
+    // Randomly fill starting level.
+    realWorld->FillWorldWithRandomTiles( );
+
+    // Ensure the level has outer walls.
+    realWorld->FillWorldWithOuterWalls( );
 
     while ( true )
     {
@@ -259,6 +271,11 @@ void TheMatrix::GenerateLevel( )
         if ( map[ y ][ x ].type == TYPE_TILE_FLOOR )
         { map[ y ][ x ].items.push_back( Item::Generate( )); }
     }
+}
+
+Tile &TheMatrix::GetTileAtIndex( const unsigned int x, const unsigned int y )
+{
+    realWorld->GetTileIndexAt( x, y );
 }
 
 bool TheMatrix::HasItem( Vector2D coordinate ) const

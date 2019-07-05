@@ -20,7 +20,7 @@ class TheMatrix
 {
     Tile **map;                        // 2D array of tiles that form a level
 
-    RealWorld realWorld = RealWorld( WIDTH, HEIGHT );
+    RealWorld *realWorld;
 
     Vector2D stairDown; // coordinates of stairs up and down
     Vector2D stairUp; // coordinates of stairs up and down
@@ -66,6 +66,8 @@ public:
      */
     void GenerateLevel( );
 
+    Tile &GetTileAtIndex( unsigned int x, unsigned int y );
+
     /**
      * Allow objects easier access to items on a level.
      * @param coordinate Coordinate.
@@ -78,10 +80,6 @@ public:
     item_ptr GetItem( Vector2D coordinate );
 
     void PutItem( Vector2D pos, item_ptr item );
-
-    /* get methods for attributes */
-    Tile **Map( ) const
-    { return map; }
 
     Vector2D StairDown( ) const
     { return stairDown; }

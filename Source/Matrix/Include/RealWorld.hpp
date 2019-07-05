@@ -22,6 +22,11 @@ private:
      */
     const unsigned int HEIGHT;
 
+    /**
+     * Probability of filling a tile with a wall.
+     */
+    const unsigned int FILL_PROBABILITY = 40;
+
     Tile *world;
 
 public:
@@ -38,7 +43,15 @@ public:
 
     // Methods
 
-    unsigned int GetIndex( unsigned int x, unsigned int y );
+    unsigned int GetIndex( unsigned int x, unsigned int y ) const;
+
+    Tile &GetTileIndexAt( unsigned int x, unsigned int y );
+
+    Tile GetRandomTile( ) const;
+
+    void FillWorldWithRandomTiles( ) const;
+
+    void FillWorldWithOuterWalls( ) const;
 
 };
 
