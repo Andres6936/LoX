@@ -10,14 +10,16 @@ MenuScreen &MenuScreen::GetInstance( )
 
 void MenuScreen::Draw( )
 {
-    /* clear screen first */
+    // Clear Screen.
     terminal_clear( );
 
-    /* game title */
+    // Game Title
     std::string str = "Lair of Xyrallion";
+
     UChar x = ( 80 / 2 ) - ( floor( str.length( ) / 2 ));
-    UChar y = ( 25 / 2 ) - (( MENU_EXIT_GAME + 3 ) / 2 );
-    renderer.Write( str, x, ++y );
+    UChar y = ( 25 / 3 );
+
+    renderer.Write( str, x, y );
 
     /* new game option */
     str = "Start Game";
@@ -37,14 +39,26 @@ void MenuScreen::Draw( )
     str = "Quit";
     x = ( 80 / 2 ) - ( str.length( ) / 2 );
     if ( itemMenu == MENU_EXIT_GAME )
-    { renderer.Write( str, x, ++y, COL_RED, "red" ); }
+    {
+        renderer.Write( str, x, ++y, COL_RED, "red" );
+    }
     else
-    { renderer.Write( str, x, ++y ); }
+    {
+        renderer.Write( str, x, ++y );
+    }
+
+    str = "In memory of Princesa (My beloved pet)";
+    x = ( 80 / 2 ) - ( str.length( ) / 2 );
+    renderer.Write( str, x, 25 - 6 );
+
+    str = "July 2, 2019";
+    x = ( 80 / 2 ) - ( str.length( ) / 2 );
+    renderer.Write( str, x, 25 - 5 );
 
     /* game version */
     str = "Development Version ";
     str += _LoX_VERSION;
-    renderer.Write( str, 0, 25 - 1 );
+    renderer.Write( str, 0, 25 - 2 );
 
     /* refresh window */
     terminal_refresh( );
