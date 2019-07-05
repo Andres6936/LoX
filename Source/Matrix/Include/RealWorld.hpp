@@ -46,6 +46,16 @@ private:
 
     Tile *world;
 
+    /**
+     * Coordinates of stairs down.
+     */
+    Vector2D coordinateStairDown;
+
+    /**
+     * Coordinates of stairs up
+     */
+    Vector2D coordinateStairUp;
+
     // Methods
 
     bool IsValidTileCoordinateAt( const Vector2D &coordinate ) const;
@@ -76,6 +86,10 @@ public:
 
     Tile GetRandomTile( ) const;
 
+    Vector2D &GetCoordinateStairDown( );
+
+    Vector2D &GetCoordinateStairUp( );
+
     void FillWorldWithRandomTiles( ) const;
 
     void FillWorldWithOuterWalls( ) const;
@@ -89,6 +103,8 @@ public:
      * -generation-in-games-tutorial-part-1
      */
     void RunDrunkardWalkAlgorithm( ) const;
+
+    void PlaceStairs( );
 
 };
 

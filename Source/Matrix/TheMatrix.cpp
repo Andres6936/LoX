@@ -126,6 +126,8 @@ void TheMatrix::GenerateLevel( )
 
     // --------------------------------
 
+    realWorld->PlaceStairs( );
+
     while ( true )
     {
         // randomly fill starting level
@@ -297,6 +299,16 @@ void TheMatrix::GenerateLevel( )
 Tile &TheMatrix::GetTileAtIndex( const unsigned int x, const unsigned int y )
 {
     realWorld->GetTileIndexAt( x, y );
+}
+
+Vector2D &TheMatrix::GetCoordinateStairDown( )
+{
+    return realWorld->GetCoordinateStairDown( );
+}
+
+Vector2D &TheMatrix::GetCoordinateStairUp( )
+{
+    return realWorld->GetCoordinateStairUp( );
 }
 
 bool TheMatrix::HasItem( Vector2D coordinate ) const

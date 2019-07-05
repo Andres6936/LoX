@@ -68,6 +68,10 @@ public:
 
     Tile &GetTileAtIndex( unsigned int x, unsigned int y );
 
+    Vector2D &GetCoordinateStairDown( );
+
+    Vector2D &GetCoordinateStairUp( );
+
     /**
      * Allow objects easier access to items on a level.
      * @param coordinate Coordinate.
@@ -80,12 +84,6 @@ public:
     item_ptr GetItem( Vector2D coordinate );
 
     void PutItem( Vector2D pos, item_ptr item );
-
-    Vector2D StairDown( ) const
-    { return stairDown; }
-
-    Vector2D StairUp( ) const
-    { return stairUp; }
 
 };
 

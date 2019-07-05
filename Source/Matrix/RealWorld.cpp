@@ -82,6 +82,16 @@ Tile RealWorld::GetRandomTile( ) const
     }
 }
 
+Vector2D &RealWorld::GetCoordinateStairDown( )
+{
+    return coordinateStairDown;
+}
+
+Vector2D &RealWorld::GetCoordinateStairUp( )
+{
+    return coordinateStairUp;
+}
+
 void RealWorld::FillWorldWithRandomTiles( ) const
 {
     for ( unsigned int i = 0; i < WIDTH * HEIGHT; i++ )
@@ -215,4 +225,21 @@ void RealWorld::RunDrunkardWalkAlgorithm( ) const
             currentFloorCount += 1;
         }
     }
+}
+
+void RealWorld::PlaceStairs( )
+{
+    // Stair Down
+    Vector2D newStairDown = GetCoordinateOfRandomTileTypeFloor( );
+
+    coordinateStairDown = Vector2D( newStairDown );
+
+    world[ GetIndex( newStairDown ) ] = Tile( TYPE_TILE_STAIR_DOWN, true, false );
+
+    // Stair Up
+    Vector2D newStairUp = GetCoordinateOfRandomTileTypeFloor( );
+
+    coordinateStairUp = Vector2D( newStairUp );
+
+    world[ GetIndex( newStairUp ) ] = Tile( TYPE_TILE_STAIR_UP, true, false );
 }

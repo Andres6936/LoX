@@ -4,7 +4,7 @@
 PlayScreen::PlayScreen( )
 {
     level = 0;
-    character.Pos( theMatrix.StairUp( ));
+    character.Pos( theMatrix.GetCoordinateStairUp( ));
 }
 
 PlayScreen::~PlayScreen( ) = default;
@@ -126,24 +126,24 @@ void PlayScreen::Update( )
 
             /* LEVEL TRAVERSAL */
 //        case '>':
-//            if ( character.GetCoordinate( ) == theMatrix.StairDown( ))
+//            if ( character.GetCoordinate( ) == theMatrix.GetCoordinateStairDown( ))
 //            {
 //                if ( dungeon.size( ) == ++level )
 //                {
 //                    dungeon.push_back( TheMatrix ( LEVEL_WIDTH, LEVEL_HEIGHT ) );
 //                }
-//                character.Pos( theMatrix.StairUp( ));
+//                character.Pos( theMatrix.GetCoordinateStairUp( ));
 //            }
 //            break;
 //
 //        case '<':
-//            if ( character.GetCoordinate( ) == theMatrix.StairUp( ))
+//            if ( character.GetCoordinate( ) == theMatrix.GetCoordinateStairUp( ))
 //            {
 //                if ( level == 0 )
 //                { }
 //                else
 //                { level--; }
-//                character.Pos( theMatrix.StairDown( ));
+//                character.Pos( theMatrix.GetCoordinateStairDown( ));
 //            }
 //            break;
 
