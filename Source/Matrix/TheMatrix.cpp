@@ -105,6 +105,9 @@ void TheMatrix::GenerateLevel( )
     // Ensure the level has outer walls.
     realWorld->FillWorldWithOuterWalls( );
 
+    // Run cellular automata algorithm.
+    realWorld->RunCellularAutomata( );
+
     while ( true )
     {
         // randomly fill starting level

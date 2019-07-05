@@ -60,3 +60,58 @@ void RealWorld::FillWorldWithOuterWalls( ) const
         world[ GetIndex( WIDTH - 1, j ) ] = Tile( TYPE_TILE_WALL, false, true );
     }
 }
+
+void RealWorld::RunCellularAutomata( ) const
+{
+    for ( unsigned int x = 1; x < WIDTH - 1; x++ )
+    {
+        for ( unsigned int y = 1; y < HEIGHT - 1; y++ )
+        {
+            unsigned int adjCountR1 = 0;
+
+            for ( int i = -1; i <= 1; i++ )
+            {
+                for ( int j = -1; j <= 1; j++ )
+                {
+                    if ( world[ GetIndex( x + j, y + i ) ].type != TYPE_TILE_FLOOR )
+                    {
+                        adjCountR1 += 1;
+                    }
+                }
+            }
+
+            unsigned int adjCountR2 = 0;
+
+            for ( int i = y - 2; i <= y + 2; i++ )
+            {
+                for ( int j = x - 2; j <= x + 2; j++ )
+                {
+                    if (( i - y ) == 2 && ( j - x ) == 2 )
+                    {
+                        continue;
+                    }
+
+                    if ( i >= HEIGHT || j >= WIDTH )
+                    {
+                        continue;
+                    }
+
+                    if ( world[ GetIndex( j, i ) ].type != TYPE_TILE_FLOOR )
+                    {
+                        adjCountR2 += 1;
+                    }
+                }
+            }
+
+            // Select new tile for this position.
+            if ( adjCountR1 >= R1_CUT_OFF || adjCountR2 <= R2_CUT_OFF )
+            {
+                world[ GetIndex( x, y ) ] = Tile( TYPE_TILE_WALL, false, true );
+            }
+            else
+            {
+                world[ GetIndex( x, y ) ] = Tile( TYPE_TILE_FLOOR, true, false );
+            }
+        }
+    }
+}

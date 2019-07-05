@@ -25,7 +25,17 @@ private:
     /**
      * Probability of filling a tile with a wall.
      */
-    const unsigned int FILL_PROBABILITY = 40;
+    const unsigned short FILL_PROBABILITY = 40;
+
+    /**
+     * Values used in generation algorithm.
+     */
+    const unsigned short R1_CUT_OFF = 5;
+
+    /**
+     * Values used in generation algorithm.
+     */
+    const unsigned short R2_CUT_OFF = 0;
 
     Tile *world;
 
@@ -52,6 +62,8 @@ public:
     void FillWorldWithRandomTiles( ) const;
 
     void FillWorldWithOuterWalls( ) const;
+
+    void RunCellularAutomata( ) const;
 
 };
 
