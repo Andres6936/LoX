@@ -99,14 +99,32 @@ void TheMatrix::GenerateLevel( )
         flooded_map[ i ] = new Tile[WIDTH];
     }
 
+    // --------------------------------
+
+    // First Version With Cellular Automata
+
     // Randomly fill starting level.
-    realWorld->FillWorldWithRandomTiles( );
+    //realWorld->FillWorldWithRandomTiles( );
 
     // Ensure the level has outer walls.
-    realWorld->FillWorldWithOuterWalls( );
+    //realWorld->FillWorldWithOuterWalls( );
 
     // Run cellular automata algorithm.
-    realWorld->RunCellularAutomata( );
+    //realWorld->RunCellularAutomata( );
+
+    // End Version With Cellular Automata
+
+    // --------------------------------
+
+    // First Version With Drunkard Walk Algorithm
+
+    realWorld->FillWorldWithTileTypeWall( );
+
+    realWorld->RunDrunkardWalkAlgorithm( );
+
+    // End Version With Drunkard Walk Algorithm
+
+    // --------------------------------
 
     while ( true )
     {

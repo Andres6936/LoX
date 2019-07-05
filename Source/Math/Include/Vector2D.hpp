@@ -38,6 +38,16 @@ public:
         y = nY;
     }
 
+    /**
+     * Initialize the Vector from an existing Vector.
+     * @param vect Vector to copy.
+     */
+    Vector2D( const Vector2D &vect )
+    {
+        x = vect.x;
+        y = vect.y;
+    }
+
     // Methods
 
     // Operators
