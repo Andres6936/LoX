@@ -84,6 +84,10 @@ public:
 
     void RunCellularAutomata( ) const;
 
+    /**
+     * @See: https://www.raywenderlich.com/2637-procedural-level
+     * -generation-in-games-tutorial-part-1
+     */
     void RunDrunkardWalkAlgorithm( ) const;
 
 };
