@@ -2,12 +2,12 @@
 
 #include "Include/ItemList.hpp"
 
-item_ptr Item::Generate( )
+ItemPointer Item::Generate( )
 {
     Die die = { 1, ITEM_RANGED + 1, -1 };
     UInt cat = DieRoll::Roll( die );
 
-    item_ptr item;
+    ItemPointer item;
 
     switch ( cat )
     {

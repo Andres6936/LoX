@@ -70,7 +70,7 @@ public:
 
     UInt GetExperience( ) const;
 
-    Vector2D GetCoordinate( ) const;
+    Vector2D &GetCoordinate( );
 
     UInt GetCoordinateX( ) const;
 

@@ -91,7 +91,7 @@ UInt Entity::GetExperience( ) const
     return experience;
 }
 
-Vector2D Entity::GetCoordinate( ) const
+Vector2D &Entity::GetCoordinate( )
 {
     return coordinate;
 }

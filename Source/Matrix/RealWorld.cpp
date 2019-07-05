@@ -55,6 +55,11 @@ Vector2D RealWorld::GetCoordinateOfRandomTileTypeFloor( ) const
 
 // Methods Public
 
+bool RealWorld::HasItemsTileAt( Vector2D &coordinate ) const
+{
+    return !world[ GetIndex( coordinate ) ].items.empty( );
+}
+
 unsigned int RealWorld::GetIndex( const unsigned int x, const unsigned int y ) const
 {
     return x + WIDTH * y;
@@ -90,6 +95,25 @@ Vector2D &RealWorld::GetCoordinateStairDown( )
 Vector2D &RealWorld::GetCoordinateStairUp( )
 {
     return coordinateStairUp;
+}
+
+ItemPointer RealWorld::GetItemAt( Vector2D &coordinate ) const
+{
+    ItemPointer item = SeeItemAt( coordinate );
+
+    world[ GetIndex( coordinate ) ].items.pop_back( );
+
+    return item;
+}
+
+ItemPointer RealWorld::SeeItemAt( Vector2D &coordinate ) const
+{
+    return world[ GetIndex( coordinate ) ].items.back( );
+}
+
+void RealWorld::AddItemAt( Vector2D &coordinate, ItemPointer &item ) const
+{
+    world[ GetIndex( coordinate ) ].items.push_back( item );
 }
 
 void RealWorld::FillWorldWithRandomTiles( ) const
@@ -242,4 +266,14 @@ void RealWorld::PlaceStairs( )
     coordinateStairUp = Vector2D( newStairUp );
 
     world[ GetIndex( newStairUp ) ] = Tile( TYPE_TILE_STAIR_UP, true, false );
+}
+
+void RealWorld::PlaceItemsRandomAroundWorld( ) const
+{
+    for ( unsigned int i = 0; i < WIDTH / 2; i++ )
+    {
+        Vector2D newItem = GetCoordinateOfRandomTileTypeFloor( );
+
+        world[ GetIndex( newItem ) ].items.push_back( Item::Generate( ));
+    }
 }

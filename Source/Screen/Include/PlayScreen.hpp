@@ -15,7 +15,7 @@ class PlayScreen : public IScreen
     TheMatrix theMatrix = TheMatrix( LEVEL_WIDTH, LEVEL_HEIGHT );
 
     UInt level;                        // current dungeon level
-    std::vector <item_ptr> inventory;   // player inventory (TODO: Move to character class)
+    std::vector <ItemPointer> inventory;   // player inventory (TODO: Move to character class)
 
     Renderer &renderer = Renderer::GetInstance( );
 

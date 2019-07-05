@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <Include/DieRoll.hpp>
 #include "Tile.hpp"
 
 class RealWorld
@@ -78,6 +79,8 @@ public:
 
     // Methods
 
+    bool HasItemsTileAt( Vector2D &coordinate ) const;
+
     unsigned int GetIndex( unsigned int x, unsigned int y ) const;
 
     unsigned int GetIndex( Vector2D &coordinate ) const;
@@ -89,6 +92,12 @@ public:
     Vector2D &GetCoordinateStairDown( );
 
     Vector2D &GetCoordinateStairUp( );
+
+    ItemPointer GetItemAt( Vector2D &coordinate ) const;
+
+    ItemPointer SeeItemAt( Vector2D &coordinate ) const;
+
+    void AddItemAt( Vector2D &coordinate, ItemPointer &item ) const;
 
     void FillWorldWithRandomTiles( ) const;
 
@@ -105,6 +114,8 @@ public:
     void RunDrunkardWalkAlgorithm( ) const;
 
     void PlaceStairs( );
+
+    void PlaceItemsRandomAroundWorld( ) const;
 
 };
 

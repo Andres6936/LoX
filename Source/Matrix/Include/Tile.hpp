@@ -31,7 +31,7 @@ public:
     /**
      * Items on this tile
      */
-    std::vector <item_ptr> items;
+    std::vector <ItemPointer> items;
 
     // Constructs
 

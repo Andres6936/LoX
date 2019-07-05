@@ -13,7 +13,7 @@ class Weapon;
 
 class Ranged;
 
-typedef std::shared_ptr <Item> item_ptr;
+typedef std::shared_ptr <Item> ItemPointer;
 
 /* enumeration of all item categories in the game */
 enum ItemCategories
@@ -67,7 +67,7 @@ public:
     { return _weight; }
 
     /* this method generates an item and returns a shared pointer to it */
-    static item_ptr Generate( );
+    static ItemPointer Generate( );
 };
 
 #endif

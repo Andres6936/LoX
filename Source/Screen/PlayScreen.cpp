@@ -26,9 +26,9 @@ void PlayScreen::Draw( )
     renderer.DrawStats( character, level );
 
     /* print items on ground, if any */
-    if ( theMatrix.HasItem( character.GetCoordinate( )))
+    if ( theMatrix.HasItemsTileWithPosition( character.GetCoordinate( )))
     {
-        std::string msg = "Item here: " + theMatrix.SeeItem( character.GetCoordinate( ))->Name( );
+        std::string msg = "Item here: " + theMatrix.SeeItemAt( character.GetCoordinate( ))->Name( );
         renderer.Message( msg );
     }
 
@@ -149,9 +149,9 @@ void PlayScreen::Update( )
 
             /* ITEM MANAGEMENT */
         case TK_COMMA:
-            if ( theMatrix.HasItem( character.GetCoordinate( )))
+            if ( theMatrix.HasItemsTileWithPosition( character.GetCoordinate( )))
             {
-                inventory.push_back( theMatrix.GetItem( character.GetCoordinate( )));
+                inventory.push_back( theMatrix.GetItemAt( character.GetCoordinate( )));
                 std::string msg = "Picked up " + inventory.back( )->Name( );
                 renderer.Message( msg );
             }
