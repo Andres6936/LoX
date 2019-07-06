@@ -19,7 +19,7 @@ ADD_EXECUTABLE(LoX
         Source/Character.cpp
         Source/Entity/Entity.cpp
         Source/DieRoll.cpp
-        Source/Item.cpp
+        Source/Item/Item.cpp
         Source/Renderer.cpp
         )
 

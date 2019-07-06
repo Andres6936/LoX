@@ -1,7 +1,9 @@
 #ifndef _LoX_WEAPON
 #define _LoX_WEAPON
 
-#include "Include/Item.hpp"
+#pragma once
+
+#include "Item/Include/Item.hpp"
 #include "Include/DieRoll.hpp"
 
 /* template used to describe weapon items */

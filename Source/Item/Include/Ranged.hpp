@@ -1,7 +1,9 @@
 #ifndef _LoX_RANGED
 #define _LoX_RANGED
 
-#include "Include/Item.hpp"
+#pragma once
+
+#include "Item/Include/Item.hpp"
 
 /* template used to describe ranged items */
 struct RangedTemplate

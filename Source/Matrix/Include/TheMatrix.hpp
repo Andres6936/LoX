@@ -4,7 +4,7 @@
 #pragma once
 
 #include "Include/Common.hpp"
-#include "Include/Item.hpp"
+#include "Item/Include/Item.hpp"
 #include "Entity/Include/Entity.hpp"
 #include "Matrix/Enum/ETypeTiles.hpp"
 #include "Matrix/Include/RealWorld.hpp"

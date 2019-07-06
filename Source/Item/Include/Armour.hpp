@@ -1,7 +1,9 @@
 #ifndef _LoX_ARMOUR
 #define _LoX_ARMOUR
 
-#include "Item.hpp"
+#pragma once
+
+#include "Item/Include/Item.hpp"
 
 /* template used to describe armour items */
 struct ArmourTemplate

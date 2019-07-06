@@ -5,7 +5,7 @@
 
 #include "../Interface/ISreen.hpp"
 #include <Include/Renderer.hpp>
-#include "Include/Item.hpp"
+#include "Item/Include/Item.hpp"
 #include "Matrix/Include/TheMatrix.hpp"
 #include "Include/Character.hpp"
 

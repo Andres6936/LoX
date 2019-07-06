@@ -1,11 +1,12 @@
 #ifndef _LoX_ITEMLIST
 #define _LoX_ITEMLIST
 
-#include "Include/Common.hpp"
+#pragma once
 
-#include "Include/Armour.hpp"
-#include "Weapon.hpp"
-#include "Ranged.hpp"
+#include "Include/Common.hpp"
+#include "Item/Include/Armour.hpp"
+#include "Item/Include/Weapon.hpp"
+#include "Item/Include/Ranged.hpp"
 
 /* lookup table of all armour in the game */
 const ArmourTemplate armourTemplates[] = {
