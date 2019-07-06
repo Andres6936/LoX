@@ -2,6 +2,26 @@
 
 #include "Include/ItemList.hpp"
 
+UInt Item::GetWeight( ) const
+{
+    return weight;
+}
+
+std::string Item::GetName( ) const
+{
+    return name;
+}
+
+EItemCategories Item::GetCategory( ) const
+{
+    return category;
+}
+
+EItemTypes Item::GetType( ) const
+{
+    return type;
+}
+
 ItemPointer Item::Generate( )
 {
     Die die = { 1, ITEM_RANGED + 1, -1 };
@@ -27,7 +47,7 @@ ItemPointer Item::Generate( )
             break;
 
         default:
-            item = std::make_shared <Item>( "Nothing", 255, 255, 0 );
+            item = std::make_shared <Item>( "Nothing", ITEM_NONE, ITEM_TYPE_NONE, 0 );
     }
 
     return item;

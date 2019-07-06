@@ -8,7 +8,7 @@
 /* template used to describe armour items */
 struct ArmourTemplate
 {
-    UInt type;
+    EItemTypes type;
     UInt limb;
     std::string name;
     UInt weight;

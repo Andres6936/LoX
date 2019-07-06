@@ -28,7 +28,7 @@ void PlayScreen::Draw( )
     /* print items on ground, if any */
     if ( theMatrix.HasItemsTileWithPosition( character.GetCoordinate( )))
     {
-        std::string msg = "Item here: " + theMatrix.SeeItemAt( character.GetCoordinate( ))->Name( );
+        std::string msg = "Item here: " + theMatrix.SeeItemAt( character.GetCoordinate( ))->GetName( );
         renderer.Message( msg );
     }
 
@@ -152,7 +152,7 @@ void PlayScreen::Update( )
             if ( theMatrix.HasItemsTileWithPosition( character.GetCoordinate( )))
             {
                 inventory.push_back( theMatrix.GetItemAt( character.GetCoordinate( )));
-                std::string msg = "Picked up " + inventory.back( )->Name( );
+                std::string msg = "Picked up " + inventory.back( )->GetName( );
                 renderer.Message( msg );
             }
             break;

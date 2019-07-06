@@ -8,7 +8,7 @@
 /* template used to describe ranged items */
 struct RangedTemplate
 {
-    UInt type;
+    EItemTypes type;
     std::string name;
     UInt weight;
     Die dmg;

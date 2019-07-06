@@ -1,0 +1,14 @@
+#ifndef LOX_EITEMCATEGORIES_HPP
+#define LOX_EITEMCATEGORIES_HPP
+
+#pragma once
+
+enum EItemCategories
+{
+    ITEM_NONE,
+    ITEM_ARMOUR,
+    ITEM_WEAPON,
+    ITEM_RANGED
+};
+
+#endif //LOX_EITEMCATEGORIES_HPP

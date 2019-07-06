@@ -9,7 +9,7 @@
 /* template used to describe weapon items */
 struct WeaponTemplate
 {
-    UInt type;
+    EItemTypes type;
     UInt style;
     std::string name;
     UInt weight;

@@ -54,7 +54,7 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     /* if there are items here, draw the top item of the stack */
     if ( !tile.items.empty( ))
     {
-        symbol_map item = item_symbols[ tile.items[ 0 ]->Category( ) ];
+        symbol_map item = item_symbols[ tile.items[ 0 ]->GetCategory( ) ];
 
         if ( item.type == ITEM_ARMOUR )
         {
