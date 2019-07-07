@@ -11,52 +11,52 @@
 /* lookup table of all armour in the game */
 const ArmourTemplate armourTemplates[] = {
         /* ARMOUR_HELMET */
-        { ITEM_TYPE_MUNDANE, ARMOUR_HELMET, "Leather Helmet",    5,  1 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HELMET, "Hide Helmet",       10, 2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HELMET, "Steel Helmet",      20, 4 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HELMET, "Dwarven Helmet",    25, 6 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_HELMET, "Elven Helmet",      10, 6 },
-        { ITEM_TYPE_EPIC,    ARMOUR_HELMET, "Draconian Helmet",  45, 8 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HELMET, "Leather Helmet",    5,  1 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HELMET, "Hide Helmet",       10, 2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HELMET, "Steel Helmet",      20, 4 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HELMET, "Dwarven Helmet",    25, 6 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::HELMET, "Elven Helmet",      10, 6 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::HELMET, "Draconian Helmet",  45, 8 },
 
         /* ARMOUR_TORSO */
-        { ITEM_TYPE_MUNDANE, ARMOUR_TORSO,  "Leather Armour",    15, 2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_TORSO,  "Hide Armour",       25, 3 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_TORSO,  "Steel Armour",      50, 7 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_TORSO,  "Dwarven Armour",    55, 8 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_TORSO,  "Elven Armour",      25, 8 },
-        { ITEM_TYPE_EPIC,    ARMOUR_TORSO,  "Draconian Armour",  75, 10 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::TORSO,  "Leather Armour",    15, 2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::TORSO,  "Hide Armour",       25, 3 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::TORSO,  "Steel Armour",      50, 7 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::TORSO,  "Dwarven Armour",    55, 8 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::TORSO,  "Elven Armour",      25, 8 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::TORSO,  "Draconian Armour",  75, 10 },
 
         /* ARMOUR_LEGS */
-        { ITEM_TYPE_MUNDANE, ARMOUR_LEGS,   "Leather Greaves",   10, 1 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_LEGS,   "Hide Greaves",      15, 2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_LEGS,   "Steel Greaves",     25, 5 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_LEGS,   "Dwarven Greaves",   35, 6 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_LEGS,   "Elven Greaves",     15, 6 },
-        { ITEM_TYPE_EPIC,    ARMOUR_LEGS,   "Draconian Greaves", 55, 8 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::LEGS,   "Leather Greaves",   10, 1 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::LEGS,   "Hide Greaves",      15, 2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::LEGS,   "Steel Greaves",     25, 5 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::LEGS,   "Dwarven Greaves",   35, 6 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::LEGS,   "Elven Greaves",     15, 6 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::LEGS,   "Draconian Greaves", 55, 8 },
 
         /* ARMOUR_HANDS */
-        { ITEM_TYPE_MUNDANE, ARMOUR_HANDS,  "Leather Gloves",    2,  1 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HANDS,  "Hide Gloves",       5,  2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HANDS,  "Steel Gloves",      10, 3 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_HANDS,  "Dwarven Gloves",    20, 4 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_HANDS,  "Elven Gloves",      5,  4 },
-        { ITEM_TYPE_EPIC,    ARMOUR_HANDS,  "Draconian Gloves",  40, 6 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HANDS,  "Leather Gloves",    2,  1 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HANDS,  "Hide Gloves",       5,  2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HANDS,  "Steel Gloves",      10, 3 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::HANDS,  "Dwarven Gloves",    20, 4 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::HANDS,  "Elven Gloves",      5,  4 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::HANDS,  "Draconian Gloves",  40, 6 },
 
         /* ARMOUR_FEET */
-        { ITEM_TYPE_MUNDANE, ARMOUR_FEET,   "Leather Boots",     2,  1 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_FEET,   "Hide Boots",        5,  2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_FEET,   "Steel Boots",       10, 3 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_FEET,   "Dwarven Boots",     20, 4 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_FEET,   "Elven Boots",       5,  4 },
-        { ITEM_TYPE_EPIC,    ARMOUR_FEET,   "Draconian Boots",   40, 6 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::FEET,   "Leather Boots",     2,  1 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::FEET,   "Hide Boots",        5,  2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::FEET,   "Steel Boots",       10, 3 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::FEET,   "Dwarven Boots",     20, 4 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::FEET,   "Elven Boots",       5,  4 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::FEET,   "Draconian Boots",   40, 6 },
 
         /* ARMOUR_SHIELD */
-        { ITEM_TYPE_MUNDANE, ARMOUR_SHIELD, "Leather Shield",    12, 2 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_SHIELD, "Hide Shield",       17, 3 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_SHIELD, "Steel Shield",      27, 7 },
-        { ITEM_TYPE_MUNDANE, ARMOUR_SHIELD, "Dwarven Shield",    37, 8 },
-        { ITEM_TYPE_MAGIC,   ARMOUR_SHIELD, "Elven Shield",      17, 3 },
-        { ITEM_TYPE_EPIC,    ARMOUR_SHIELD, "Draconian Shield",  57, 10 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::SHIELD, "Leather Shield",    12, 2 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::SHIELD, "Hide Shield",       17, 3 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::SHIELD, "Steel Shield",      27, 7 },
+        { ITEM_TYPE_MUNDANE, EArmourSlot::SHIELD, "Dwarven Shield",    37, 8 },
+        { ITEM_TYPE_MAGIC,   EArmourSlot::SHIELD, "Elven Shield",      17, 3 },
+        { ITEM_TYPE_EPIC,    EArmourSlot::SHIELD, "Draconian Shield",  57, 10 },
 };
 
 /* lookup table of all weapons in the game */
