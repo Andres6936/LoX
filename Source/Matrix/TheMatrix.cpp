@@ -68,7 +68,7 @@ void TheMatrix::GenerateLevel( )
 
 Tile &TheMatrix::GetTileAtIndex( const unsigned int x, const unsigned int y )
 {
-    realWorld->GetTileIndexAt( x, y );
+    return realWorld->GetTileIndexAt( x, y );
 }
 
 Vector2D &TheMatrix::GetCoordinateStairDown( )

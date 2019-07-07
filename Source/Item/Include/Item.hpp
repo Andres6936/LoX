@@ -16,12 +16,17 @@ class Item
 
 private:
 
+    // Fields
+
+    UInt weight;
     std::string name;
+
     EItemCategory category;
     EItemTypes type;
-    UInt weight;
 
 public:
+
+    // Constructs
 
     Item( std::string name, EItemCategory category, EItemTypes type, UInt weight ) :
             name( name ),
@@ -30,7 +35,11 @@ public:
             weight( weight )
     { }
 
+    // Destructs
+
     virtual ~Item( ) = default;
+
+    // Methods
 
     UInt GetWeight( ) const;
 
