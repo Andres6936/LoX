@@ -56,17 +56,17 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     {
         const ItemPointer item = tile.SeeLastItem( );
 
-        if ( item->GetCategory( ) == EItemCategories::ARMOUR )
+        if ( item->GetCategory( ) == EItemCategory::ARMOUR )
         {
             terminal_color( color_from_name( "red" ));
             terminal_put( x, y, '[' );
         }
-        else if ( item->GetCategory( ) == EItemCategories::WEAPON )
+        else if ( item->GetCategory( ) == EItemCategory::WEAPON )
         {
             terminal_color( color_from_name( "cyan" ));
             terminal_put( x, y, '(' );
         }
-        else if ( item->GetCategory( ) == EItemCategories::RANGED )
+        else if ( item->GetCategory( ) == EItemCategory::RANGED )
         {
             terminal_color( color_from_name( "green" ));
             terminal_put( x, y, '{' );

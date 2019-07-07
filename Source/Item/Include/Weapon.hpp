@@ -34,7 +34,7 @@ class Weapon : public Item
 public:
     /* constructor takes a WeaponTemplate */
     Weapon( const WeaponTemplate &wt ) :
-            Item( wt.name, EItemCategories::WEAPON, wt.type, wt.weight ),
+            Item( wt.name, EItemCategory::WEAPON, wt.type, wt.weight ),
             _style( wt.style ),
             _dmg( wt.dmg ),
             _crit( wt.crit )

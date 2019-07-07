@@ -34,7 +34,7 @@ class Armour : public Item
 public:
     /* constructor takes an ArmourTemplate */
     Armour( const ArmourTemplate &at ) :
-            Item( at.name, EItemCategories::ARMOUR, at.type, at.weight ),
+            Item( at.name, EItemCategory::ARMOUR, at.type, at.weight ),
             _limb( at.limb ),
             _AC( at.AC )
     { }

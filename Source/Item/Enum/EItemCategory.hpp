@@ -1,5 +1,5 @@
-#ifndef LOX_EITEMCATEGORIES_HPP
-#define LOX_EITEMCATEGORIES_HPP
+#ifndef LOX_EITEMCATEGORY_HPP
+#define LOX_EITEMCATEGORY_HPP
 
 #pragma once
 
@@ -8,7 +8,7 @@
  *
  * @See: Marc Gregoire - Professional C++ - Wrox - (P. 16)
  */
-enum class EItemCategories : short
+enum class EItemCategory : short
 {
     NONE,
     ARMOUR,
@@ -16,4 +16,4 @@ enum class EItemCategories : short
     RANGED
 };
 
-#endif //LOX_EITEMCATEGORIES_HPP
+#endif //LOX_EITEMCATEGORY_HPP

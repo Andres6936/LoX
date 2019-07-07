@@ -12,7 +12,7 @@ std::string Item::GetName( ) const
     return name;
 }
 
-EItemCategories Item::GetCategory( ) const
+EItemCategory Item::GetCategory( ) const
 {
     return category;
 }
@@ -47,7 +47,7 @@ ItemPointer Item::Generate( )
     }
     else
     {
-        item = std::make_shared <Item>( "Nothing", EItemCategories::NONE, ITEM_TYPE_NONE, 0 );
+        item = std::make_shared <Item>( "Nothing", EItemCategory::NONE, ITEM_TYPE_NONE, 0 );
     }
 
     return item;

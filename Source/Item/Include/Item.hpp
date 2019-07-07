@@ -5,7 +5,7 @@
 
 #include "Include/Common.hpp"
 #include "Item/Enum/EItemTypes.hpp"
-#include "Item/Enum/EItemCategories.hpp"
+#include "Item/Enum/EItemCategory.hpp"
 
 class Item;
 
@@ -17,13 +17,13 @@ class Item
 private:
 
     std::string name;
-    EItemCategories category;
+    EItemCategory category;
     EItemTypes type;
     UInt weight;
 
 public:
 
-    Item( std::string name, EItemCategories category, EItemTypes type, UInt weight ) :
+    Item( std::string name, EItemCategory category, EItemTypes type, UInt weight ) :
             name( name ),
             category( category ),
             type( type ),
@@ -36,7 +36,7 @@ public:
 
     std::string GetName( ) const;
 
-    EItemCategories GetCategory( ) const;
+    EItemCategory GetCategory( ) const;
 
     EItemTypes GetType( ) const;
 
