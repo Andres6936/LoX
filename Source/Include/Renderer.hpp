@@ -74,13 +74,6 @@ const symbol_map tile_symbols[] = {
         { TYPE_TILE_STAIR_DOWN, '>', COL_WHITE },
 };
 
-/* symbol map for items */
-const symbol_map item_symbols[] = {
-        { ITEM_ARMOUR, '[', COL_RED },
-        { ITEM_WEAPON, '(', COL_CYAN },
-        { ITEM_RANGED, '{', COL_GREEN },
-};
-
 /* symbol map for creatures */
 const symbol_map creature_symbols[] = {
         { CREATURE_BUGBEAR,    'b', COL_YELLOW },

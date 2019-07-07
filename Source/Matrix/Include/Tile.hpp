@@ -29,7 +29,7 @@ public:
     bool opaque;
 
     /**
-     * Items on this tile
+     * Items on this tile.
      */
     std::vector <ItemPointer> items;
 
@@ -44,6 +44,10 @@ public:
     virtual ~Tile( );
 
     // Methods
+
+    bool HasItems( ) const;
+
+    ItemPointer SeeLastItem( ) const;
 
 };
 

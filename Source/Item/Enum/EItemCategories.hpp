@@ -3,12 +3,17 @@
 
 #pragma once
 
-enum EItemCategories
+/**
+ * Strongly Typed Enumerations
+ *
+ * @See: Marc Gregoire - Professional C++ - Wrox - (P. 16)
+ */
+enum class EItemCategories : short
 {
-    ITEM_NONE,
-    ITEM_ARMOUR,
-    ITEM_WEAPON,
-    ITEM_RANGED
+    NONE,
+    ARMOUR,
+    WEAPON,
+    RANGED
 };
 
 #endif //LOX_EITEMCATEGORIES_HPP

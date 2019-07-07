@@ -25,7 +25,7 @@ class Ranged : public Item
 public:
     /* constructor takes a RangedTemplate */
     Ranged( const RangedTemplate &rt ) :
-            Item( rt.name, ITEM_RANGED, rt.type, rt.weight ),
+            Item( rt.name, EItemCategories::RANGED, rt.type, rt.weight ),
             _dmg( rt.dmg ),
             _crit( rt.crit ),
             _range( rt.range )

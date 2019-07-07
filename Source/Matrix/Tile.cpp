@@ -15,3 +15,13 @@ Tile::Tile( const ETypeTiles nType, const bool nPassable, const bool nOpaque )
 }
 
 Tile::~Tile( ) = default;
+
+bool Tile::HasItems( ) const
+{
+    return !items.empty( );
+}
+
+ItemPointer Tile::SeeLastItem( ) const
+{
+    return items.back( );
+}

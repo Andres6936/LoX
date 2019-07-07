@@ -52,24 +52,25 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     terminal_put( x, y, _tile.sym );
 
     /* if there are items here, draw the top item of the stack */
-    if ( !tile.items.empty( ))
+    if ( tile.HasItems( ))
     {
-        symbol_map item = item_symbols[ tile.items[ 0 ]->GetCategory( ) ];
+        const ItemPointer item = tile.SeeLastItem( );
 
-        if ( item.type == ITEM_ARMOUR )
+        if ( item->GetCategory( ) == EItemCategories::ARMOUR )
         {
             terminal_color( color_from_name( "red" ));
+            terminal_put( x, y, '[' );
         }
-        else if ( item.type == ITEM_WEAPON )
+        else if ( item->GetCategory( ) == EItemCategories::WEAPON )
         {
             terminal_color( color_from_name( "cyan" ));
+            terminal_put( x, y, '(' );
         }
-        else if ( item.type == ITEM_RANGED )
+        else if ( item->GetCategory( ) == EItemCategories::RANGED )
         {
             terminal_color( color_from_name( "green" ));
+            terminal_put( x, y, '{' );
         }
-
-        terminal_put( x, y, item.sym );
 
         // Reset the foreground color.
         terminal_color( color_from_name( "white" ));
