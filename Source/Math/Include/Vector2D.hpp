@@ -57,7 +57,7 @@ public:
      * @param vect Comparison vector.
      * @return True if x & y are the same, False in any other case.
      */
-    bool operator==( const Vector2D &vect )
+    bool operator==( const Vector2D &vect ) const
     {
         return x == vect.x && y == vect.y;
     }
