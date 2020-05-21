@@ -3,14 +3,14 @@
 // TODO: make this constructor more robust
 Renderer::Renderer( )
 {
-    terminal_open( );
-    terminal_set( "terminal: encoding=437" );
-    terminal_set( "window: size=80x25, cellsize=auto, title=LoX" );
+    TerminalOpen( );
+    TerminalSet( "terminal: encoding=437" );
+    TerminalSet( "window: size=80x25, cellsize=auto, title=LoX" );
 }
 
 Renderer::~Renderer( )
 {
-    terminal_close( );
+    TerminalClose( );
 }
 
 Renderer &Renderer::GetInstance( )
@@ -49,7 +49,7 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
     // -1 porque se añadio un nuevo elemento en la enumeración.
     symbol_map _tile = tile_symbols[ tile.type - 1 ];
 
-    terminal_put( x, y, _tile.sym );
+    TerminalPut( x, y, _tile.sym );
 
     /* if there are items here, draw the top item of the stack */
     if ( tile.HasItems( ))
@@ -58,22 +58,22 @@ void Renderer::DrawTile( Tile &tile, int x, int y )
 
         if ( item->GetCategory( ) == EItemCategory::ARMOUR )
         {
-            terminal_color( color_from_name( "red" ));
-            terminal_put( x, y, '[' );
+            TerminalColor( ColorFromName( "red" ));
+            TerminalPut( x, y, '[' );
         }
         else if ( item->GetCategory( ) == EItemCategory::WEAPON )
         {
-            terminal_color( color_from_name( "cyan" ));
-            terminal_put( x, y, '(' );
+            TerminalColor( ColorFromName( "cyan" ));
+            TerminalPut( x, y, '(' );
         }
         else if ( item->GetCategory( ) == EItemCategory::RANGED )
         {
-            terminal_color( color_from_name( "green" ));
-            terminal_put( x, y, '{' );
+            TerminalColor( ColorFromName( "green" ));
+            TerminalPut( x, y, '{' );
         }
 
         // Reset the foreground color.
-        terminal_color( color_from_name( "white" ));
+        TerminalColor( ColorFromName( "white" ));
     }
 }
 
@@ -89,30 +89,30 @@ void Renderer::DrawCreature( Entity *creature )
     {
         symbol_map _char = character_symbols[ dynamic_cast<Character *>(creature)->GetRace( ) ];
 
-        terminal_put( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _char.sym );
+        TerminalPut( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _char.sym );
     }
     else
     {
         symbol_map _creature = creature_symbols[ creature->GetType( ) ];
 
-        terminal_put( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _creature.sym );
+        TerminalPut( creature->GetCoordinateX( ) - xoffset, creature->GetCoordinateY( ) - yoffset, _creature.sym );
     }
 }
 
 int Renderer::GetKey( )
 {
-    return terminal_read( );
+    return TerminalRead( );
 }
 
 void Renderer::Write( std::string msg, int x, int y, int colour, std::string nColor )
 {
-    terminal_color( color_from_name( nColor.c_str( )));
-    terminal_print( x + 1, y + 1, msg.c_str( ));
+    TerminalColor( ColorFromName( nColor.c_str( )));
+    TerminalPrint( x + 1, y + 1, msg.c_str( ));
 }
 
 void Renderer::Message( std::string msg )
 {
-    terminal_print( 0, 24, msg.c_str( ));
+    TerminalPrint( 0, 24, msg.c_str( ));
 }
 
 void Renderer::DrawStats( Character player, UChar level )
@@ -120,11 +120,11 @@ void Renderer::DrawStats( Character player, UChar level )
     /* display name */
     std::string str = player.GetName( );
 
-    terminal_color( color_from_name( "yellow" ));
-    terminal_print( 60, 1, str.c_str( ));
+    TerminalColor( ColorFromName( "yellow" ));
+    TerminalPrint( 60, 1, str.c_str( ));
 
     // Reset the foreground color.
-    terminal_color( color_from_name( "white" ));
+    TerminalColor( ColorFromName( "white" ));
 
     /* display race */
     switch ( player.GetRace( ))
@@ -202,11 +202,11 @@ void Renderer::DrawStats( Character player, UChar level )
             break;
     }
 
-    terminal_color( color_from_name( "yellow" ));
-    terminal_print( 60, 2, str.c_str( ));
+    TerminalColor( ColorFromName( "yellow" ));
+    TerminalPrint( 60, 2, str.c_str( ));
 
     // Reset the foreground color.
-    terminal_color( color_from_name( "white" ));
+    TerminalColor( ColorFromName( "white" ));
 
     /* display hit points */
     str = "HP:";
@@ -214,7 +214,7 @@ void Renderer::DrawStats( Character player, UChar level )
     str += "/";
     str += std::to_string( player.GetMaxHp( ));
 
-    terminal_print( 60, 4, str.c_str( ));
+    TerminalPrint( 60, 4, str.c_str( ));
 
     /* display mana points */
     str = "MP:";
@@ -222,13 +222,13 @@ void Renderer::DrawStats( Character player, UChar level )
     str += "/";
     str += std::to_string( player.GetMaxMp( ));
 
-    terminal_print( 60, 5, str.c_str( ));
+    TerminalPrint( 60, 5, str.c_str( ));
 
     /* display experience */
     str = "XP:";
     str += std::to_string( player.GetExperience( ));
 
-    terminal_print( 60, 6, str.c_str( ));
+    TerminalPrint( 60, 6, str.c_str( ));
 
     /* DEBUG INFO */
     /* display position */
@@ -239,5 +239,5 @@ void Renderer::DrawStats( Character player, UChar level )
     str += " Z:";
     str += std::to_string( level + 1 );
 
-    terminal_print( 60, 20, str.c_str( ));
+    TerminalPrint( 60, 20, str.c_str( ));
 }

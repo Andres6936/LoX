@@ -11,7 +11,7 @@ MenuScreen &MenuScreen::GetInstance( )
 void MenuScreen::Draw( )
 {
     // Clear Screen.
-    terminal_clear( );
+    TerminalClear( );
 
     // Game Title
     std::string str = "Lair of Xyrallion";
@@ -61,7 +61,7 @@ void MenuScreen::Draw( )
     renderer.Write( str, 0, 25 - 2 );
 
     /* refresh window */
-    terminal_refresh( );
+    TerminalRefresh( );
 }
 
 void MenuScreen::Update( )

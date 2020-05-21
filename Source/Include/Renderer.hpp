@@ -3,7 +3,8 @@
 
 #pragma once
 
-#include "BearLibTerminal.h"
+#include <BearLibTerminal/BearLibTerminal.hpp>
+
 #include "Common.hpp"
 #include "Character.hpp"
 #include "Matrix/Include/TheMatrix.hpp"

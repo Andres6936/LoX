@@ -1,10 +1,17 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
-PROJECT(LoX)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.14 FATAL_ERROR)
+PROJECT(LoX VERSION 0.0.1 LANGUAGES CXX)
 
 SET(CMAKE_CXX_STANDARD 14)
 
-# Find the librarys here
-LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/Library)
+INCLUDE(CMakeModules/CPM.cmake)
+
+### Add dependencies via CPM
+# Add BearLibTerminal like dependency
+CPMADDPACKAGE(
+        NAME BearLibTerminal
+        GITHUB_REPOSITORY Andres6936/BearLibTerminal
+        VERSION 2020.4
+)
 
 INCLUDE_DIRECTORIES(Source)
 
@@ -24,4 +31,4 @@ ADD_EXECUTABLE(LoX
         )
 
 # Load and link the library BearLibTerminal
-TARGET_LINK_LIBRARIES(LoX BearLibTerminal)
+TARGET_LINK_LIBRARIES(LoX PRIVATE BearLibTerminal)

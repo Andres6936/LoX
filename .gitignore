@@ -1,5 +1,6 @@
 ### JetBrains
 .idea/
+cmake-build*/
 
 ### Project
 

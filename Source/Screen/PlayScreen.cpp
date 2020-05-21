@@ -17,7 +17,7 @@ PlayScreen &PlayScreen::GetInstance( )
 
 void PlayScreen::Draw( )
 {
-    terminal_clear( );
+    TerminalClear( );
 
     /* LEVEL DRAWING */
     renderer.DrawMap( theMatrix, character );
@@ -32,7 +32,7 @@ void PlayScreen::Draw( )
         renderer.Message( msg );
     }
 
-    terminal_refresh( );
+    TerminalRefresh();
 }
 
 void PlayScreen::Update( )
